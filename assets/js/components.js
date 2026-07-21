@@ -117,9 +117,7 @@ function fmHeaderHTML(activePage) {
     </nav>
 
     <div class="flex items-center gap-2">
-      <button id="search-toggle" aria-label="Search" class="hidden h-10 w-10 items-center justify-center rounded-full border border-[hsl(var(--fm-border))] transition hover:border-emerald-500 hover:text-emerald-600 sm:flex">
-        <i class="ri-search-line text-lg"></i>
-      </button>
+      
       <button id="rtl-toggle" aria-label="Toggle direction" title="Toggle LTR / RTL" class="hidden h-10 w-10 items-center justify-center rounded-full border border-[hsl(var(--fm-border))] transition hover:border-emerald-500 hover:text-emerald-600 sm:flex">
         <i class="ri-text-direction-r text-lg"></i>
       </button>
@@ -175,10 +173,7 @@ function fmMobileMenuHTML(activePage) {
         <i class="ri-close-line text-lg"></i>
       </button>
     </div>
-    <div class="mb-4 flex items-center gap-3 rounded-full border border-[hsl(var(--fm-border))] px-4 py-2.5">
-      <i class="ri-search-line text-[hsl(var(--fm-ink))]/50"></i>
-      <input type="search" placeholder="Search deals..." class="w-full bg-transparent text-sm outline-none" />
-    </div>
+    
     <nav aria-label="Mobile primary">${items}</nav>
     <div class="mt-6 flex items-center gap-3">
       <button id="mobile-theme-toggle" class="flex flex-1 items-center justify-center gap-2 rounded-full border border-[hsl(var(--fm-border))] py-2.5 text-sm font-semibold">
