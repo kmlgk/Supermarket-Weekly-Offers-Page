@@ -1,0 +1,45 @@
+FRESHMART — SUPERMARKET WEEKLY OFFERS HTML TEMPLATE
+Standard License
+
+Copyright (c) 2026 FreshMart Template
+
+This template is provided for licensed use as a standalone HTML/CSS/JS
+front-end template. Subject to the terms of the marketplace license under
+which it was obtained, you are granted a non-exclusive, non-transferable
+license to:
+
+  - Use this template to create one (1) end product for yourself or a
+    single client, where the end product is made available to end users.
+  - Modify, adapt and extend the HTML, CSS and JavaScript source files to
+    fit your project.
+
+You may NOT:
+
+  - Resell, redistribute or repackage this template (modified or
+    unmodified) as a standalone template, theme, or template pack.
+  - Claim authorship of the original template design or source code.
+
+THIRD-PARTY ASSETS
+
+This template loads the following open-source libraries via CDN. Each is
+distributed under its own license (all are MIT or similarly permissive);
+refer to each project's repository for full license text:
+
+  - Tailwind CSS            https://tailwindcss.com
+  - RemixIcon                https://remixicon.com
+  - GSAP / ScrollTrigger      https://gsap.com
+  - Lenis                     https://github.com/darkroomengineering/lenis
+  - Swiper                    https://swiperjs.com
+  - SplitType                 https://github.com/lukePeavey/SplitType
+  - AOS (Animate On Scroll)    https://michalsnik.github.io/aos/
+  - Typed.js                  https://github.com/mattboldt/typed.js
+  - CountUp.js                 https://github.com/inorganik/CountUp.js
+  - GLightbox                  https://biati-digital.github.io/glightbox/
+  - Isotope                    https://isotope.metafizzy.co
+  - Google Fonts (Inter, Plus Jakarta Sans)
+
+THE TEMPLATE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY ARISING FROM THE USE OF THE TEMPLATE.

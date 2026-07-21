@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Documentation — FreshMart HTML Template</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" />
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+  tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: {
+    sans: ['Inter','ui-sans-serif','system-ui'], display: ['"Plus Jakarta Sans"','Inter','sans-serif'],
+  } } } };
+</script>
+<style>
+  html{scroll-behavior:smooth} body{font-family:'Inter',sans-serif}
+  h1,h2,h3,.font-display{font-family:'Plus Jakarta Sans',sans-serif}
+  .doc-link.active{color:#16a34a;font-weight:700}
+</style>
+</head>
+<body class="bg-white text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-200">
+
+<header class="sticky top-0 z-20 border-b border-slate-200 bg-white/80 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/80">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="../index.html" class="flex items-center gap-2.5">
+      <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-600 text-white"><i class="ri-shopping-basket-2-fill text-xl"></i></span>
+      <span class="font-display text-lg font-extrabold">Fresh<span class="text-emerald-600">Mart</span> <span class="font-normal text-slate-400">Docs</span></span>
+    </a>
+    <a href="../index.html" class="rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-bold text-white">View Template</a>
+  </div>
+</header>
+
+<div class="mx-auto grid max-w-6xl gap-10 px-6 py-14 lg:grid-cols-[220px_1fr]">
+  <aside class="hidden lg:block">
+    <nav class="sticky top-24 space-y-1 text-sm">
+      <a href="#intro" class="doc-link block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Introduction</a>
+      <a href="#structure" class="doc-link block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">File Structure</a>
+      <a href="#getting-started" class="doc-link block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Getting Started</a>
+      <a href="#components" class="doc-link block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Shared Components</a>
+      <a href="#data" class="doc-link block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Editing Data</a>
+      <a href="#theming" class="doc-link block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Dark Mode &amp; RTL</a>
+      <a href="#animations" class="doc-link block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Animations</a>
+      <a href="#pages" class="doc-link block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Pages Reference</a>
+      <a href="#credits" class="doc-link block rounded-lg px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-900">Credits</a>
+    </nav>
+  </aside>
+
+  <main class="prose prose-slate max-w-none dark:prose-invert prose-headings:font-display prose-a:text-emerald-600">
+    <section id="intro">
+      <h1>FreshMart Documentation</h1>
+      <p>FreshMart is a supermarket / weekly-offers HTML template built with <strong>Tailwind CSS (CDN)</strong> and <strong>vanilla JavaScript</strong>. There is no build step — every page opens directly in a browser.</p>
+    </section>
+
+    <section id="structure">
+      <h2>File Structure</h2>
+      <pre class="overflow-x-auto rounded-xl bg-slate-900 p-4 text-xs text-slate-200"><code>template/
+├── *.html               11 pages, see "Pages Reference"
+├── assets/
+│   ├── css/style.css     custom CSS on top of Tailwind utilities
+│   ├── js/data.js         sample content (deals, branches, blog, pricing)
+│   ├── js/components.js   header / mega menu / mobile menu / footer / breadcrumb / CTA
+│   ├── js/theme.js         dark-light + RTL manager
+│   ├── js/render.js         card component renderers
+│   ├── js/countdown.js      countdown timer utility
+│   ├── js/main.js            preloader + animation library init
+│   ├── vendor/, images/, icons/, fonts/, videos/
+├── documentation/index.html (this file)
+├── README.md
+└── LICENSE.txt</code></pre>
+    </section>
+
+    <section id="getting-started">
+      <h2>Getting Started</h2>
+      <ol>
+        <li>Open <code>index.html</code> in any modern browser — no server or build tools needed.</li>
+        <li>An internet connection is required on first load (fonts, icons and JS libraries are served from CDNs).</li>
+        <li>To publish, upload the entire <code>template/</code> folder to any static host.</li>
+      </ol>
+    </section>
+
+    <section id="components">
+      <h2>Shared Components</h2>
+      <p>Every page includes empty placeholder elements that <code>assets/js/components.js</code> fills in on <code>DOMContentLoaded</code>, so header/footer/menu markup exists in exactly one place:</p>
+      <ul>
+        <li><code>&lt;header id="site-header"&gt;&lt;/header&gt;</code> — sticky glassmorphism header, mega menu, search, theme + RTL toggles</li>
+        <li><code>&lt;footer id="site-footer"&gt;&lt;/footer&gt;</code> — newsletter band + footer columns</li>
+        <li>Mobile menu panel is appended to <code>&lt;body&gt;</code> automatically</li>
+        <li><code>&lt;div id="breadcrumb" data-title="…" data-subtitle="…" data-crumbs='[…]'&gt;&lt;/div&gt;</code> — page hero + breadcrumb trail</li>
+        <li><code>&lt;div data-cta="app|branch|loyalty"&gt;&lt;/div&gt;</code> — reusable CTA band, three content variants</li>
+      </ul>
+      <p>The active nav link is highlighted using <code>data-page="filename.html"</code> on <code>&lt;body&gt;</code> — set this on every new page you create.</p>
+    </section>
+
+    <section id="data">
+      <h2>Editing Data</h2>
+      <p>Weekly deals, categories, branches, testimonials, blog posts and pricing tiers all live as plain arrays in <code>assets/js/data.js</code> (<code>FM_DEALS</code>, <code>FM_CATEGORIES</code>, <code>FM_BRANCHES</code>, <code>FM_TESTIMONIALS</code>, <code>FM_BLOG_POSTS</code>, <code>FM_PRICING</code>, <code>FM_STATS</code>). Edit an array once and every page referencing it updates automatically via <code>assets/js/render.js</code>.</p>
+    </section>
+
+    <section id="theming">
+      <h2>Dark Mode &amp; RTL</h2>
+      <p>Theme and direction are controlled by <code>assets/js/theme.js</code> and persisted in <code>localStorage</code> (<code>fm-theme</code>, <code>fm-dir</code>). A small inline script in every page's <code>&lt;head&gt;</code> applies the saved theme/direction before first paint to avoid a flash of incorrect styling. Brand colors are CSS variables in <code>assets/css/style.css</code> under <code>:root</code> and <code>html.dark</code>.</p>
+    </section>
+
+    <section id="animations">
+      <h2>Animations</h2>
+      <p>All animation wiring lives in <code>assets/js/main.js</code>: preloader, Lenis smooth scroll, GSAP + ScrollTrigger reveals, SplitType text reveal (<code>data-split-text</code>), AOS scroll reveal (<code>data-aos</code>), Typed.js (<code>data-typed='["A","B"]'</code>), CountUp (<code>data-countup="48" data-suffix="+"</code>), GLightbox (<code>.fm-glightbox</code>), Isotope filtering (<code>data-isotope-container</code> + <code>data-filter</code> buttons), magnetic buttons (<code>.fm-magnetic</code>), Swiper (<code>.fm-swiper</code> with a JSON <code>data-swiper-config</code>), and a reusable countdown (<code>data-countdown="ISO_DATE"</code>).</p>
+    </section>
+
+    <section id="pages">
+      <h2>Pages Reference</h2>
+      <ul>
+        <li><code>index.html</code> — Home 1: grocery deals homepage</li>
+        <li><code>home-2.html</code> — Home 2: weekly catalog homepage with hero slider</li>
+        <li><code>about.html</code>, <code>services.html</code>, <code>service-details.html</code></li>
+        <li><code>blog.html</code>, <code>blog-details.html</code></li>
+        <li><code>pricing.html</code> — loyalty membership tiers</li>
+        <li><code>contact.html</code> — contact form + branch locator (<code>#branch-locator</code>)</li>
+        <li><code>404.html</code>, <code>coming-soon.html</code></li>
+      </ul>
+    </section>
+
+    <section id="credits">
+      <h2>Credits</h2>
+      <p>Tailwind CSS, RemixIcon, GSAP/ScrollTrigger, Lenis, Swiper, SplitType, AOS, Typed.js, CountUp.js, GLightbox, Isotope, Google Fonts. See <code>LICENSE.txt</code> for details.</p>
+    </section>
+  </main>
+</div>
+</body>
+</html>

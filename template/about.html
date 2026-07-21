@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About FreshMart — Our Story, Mission &amp; Team</title>
+<meta name="description" content="Learn how FreshMart grew from a single neighborhood store into 48+ branches committed to fresh produce, fair prices and rewarding loyalty." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+<link rel="canonical" href="about.html" />
+
+<script>
+(function(){
+  var t = localStorage.getItem('fm-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var d = localStorage.getItem('fm-dir') || 'ltr';
+  document.documentElement.classList.toggle('dark', t === 'dark');
+  document.documentElement.setAttribute('dir', d);
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" />
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+      display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+    } } },
+  };
+</script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="about.html" class="bg-[hsl(var(--fm-surface))] text-[hsl(var(--fm-ink))] antialiased">
+<a href="#main-content" class="fm-skip-link">Skip to main content</a>
+
+<div id="preloader" aria-hidden="true">
+  <div class="fm-basket-loader">
+    <svg viewBox="0 0 64 64" fill="none">
+      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#16a34a" stroke-width="3" stroke-linejoin="round"/>
+      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+
+<!-- Preloader failsafe: independent of every other script tag below, so
+     a hung/blocked CDN request (fonts, GSAP, Swiper, etc.) can never
+     leave the loading screen stuck (and thus never leave the page
+     feeling "unresponsive" to scroll/clicks for several seconds). -->
+<script>
+  setTimeout(function () {
+    var el = document.getElementById('preloader');
+    if (el) el.classList.add('fm-loaded');
+  }, 4000);
+</script>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div id="fm-page-transition" aria-hidden="true"></div>
+
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-transparent"></header>
+
+<main id="main-content">
+  <div id="breadcrumb" data-title="About FreshMart" data-subtitle="From one neighborhood shop to 48+ branches — our story, mission and the people behind every basket." data-crumbs='[{"label":"About","href":"about.html"}]'></div>
+
+  <!-- ============ STORY ============ -->
+  <section class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+    <div class="grid items-center gap-14 lg:grid-cols-2">
+      <div class="relative mx-auto h-80 w-full max-w-md lg:h-96" data-aos="fade-right">
+        <div class="fm-blob absolute inset-4 bg-gradient-to-br from-emerald-500 to-teal-700"></div>
+        <i class="ri-store-2-fill absolute inset-0 m-auto text-8xl text-white/90"></i>
+        <div class="fm-float absolute -left-4 top-6 rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-4 shadow-2xl">
+          <p class="font-display text-xl font-extrabold text-emerald-600">12+ yrs</p>
+          <p class="text-xs text-[hsl(var(--fm-ink))]/55">Serving fresh</p>
+        </div>
+        <div class="fm-float-delay absolute -right-4 bottom-6 rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-4 shadow-2xl">
+          <p class="font-display text-xl font-extrabold text-emerald-600">48+</p>
+          <p class="text-xs text-[hsl(var(--fm-ink))]/55">Branches</p>
+        </div>
+      </div>
+      <div>
+        <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">Our Story</p>
+        <h1 data-split-text class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">Built around one simple idea — everyone deserves fresh, affordable groceries</h1>
+        <p class="mt-5 text-[hsl(var(--fm-ink))]/65">FreshMart opened its first store in 2014 with a single promise: stock the freshest produce, price it fairly, and treat every customer like a neighbor. That promise now powers 48+ branches, a loyalty program trusted by 320,000+ members, and weekly offers that put real savings back into your basket.</p>
+        <p class="mt-4 text-[hsl(var(--fm-ink))]/65">Today, our buyers work directly with local farms and trusted suppliers so we can pass the savings — and the freshness — straight to you, every single week.</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="services.html" class="fm-btn fm-magnetic relative inline-flex items-center gap-2 rounded-full bg-emerald-600 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-emerald-600/30">Our Services <i class="ri-arrow-right-line"></i></a>
+          <a href="contact.html" class="fm-magnetic inline-flex items-center gap-2 rounded-full border border-[hsl(var(--fm-border))] px-7 py-3.5 text-sm font-bold hover:border-emerald-500 hover:text-emerald-600">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="fm-animated-bg py-16 text-white">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 md:grid-cols-4">
+      <div id="about-stats" class="contents"></div>
+    </div>
+  </section>
+
+  <!-- ============ MISSION / VALUES ============ -->
+  <section class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+    <div class="mx-auto mb-14 max-w-2xl text-center">
+      <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">What Drives Us</p>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">Our mission &amp; values</h2>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7 text-center" data-aos="fade-up">
+        <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600"><i class="ri-seedling-line text-2xl"></i></span>
+        <h3 class="mt-4 font-display text-base font-bold">Freshness First</h3>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Sourced daily from local farms — never more than 24 hours off the vine.</p>
+      </div>
+      <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7 text-center" data-aos="fade-up" data-aos-delay="100">
+        <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600"><i class="ri-price-tag-3-line text-2xl"></i></span>
+        <h3 class="mt-4 font-display text-base font-bold">Fair Pricing</h3>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Weekly offers designed to genuinely lower your grocery bill.</p>
+      </div>
+      <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7 text-center" data-aos="fade-up" data-aos-delay="200">
+        <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-500/10 text-sky-600"><i class="ri-recycle-line text-2xl"></i></span>
+        <h3 class="mt-4 font-display text-base font-bold">Sustainability</h3>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Reduced packaging and food-waste partnerships across every branch.</p>
+      </div>
+      <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7 text-center" data-aos="fade-up" data-aos-delay="300">
+        <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-500/10 text-rose-600"><i class="ri-heart-3-line text-2xl"></i></span>
+        <h3 class="mt-4 font-display text-base font-bold">Community</h3>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Every branch supports local food banks and neighborhood programs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE ============ -->
+  <section class="bg-[hsl(var(--fm-surface-alt))] py-20 md:py-28">
+    <div class="mx-auto max-w-4xl px-6">
+      <div class="mx-auto mb-14 max-w-2xl text-center">
+        <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">Our Journey</p>
+        <h2 class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">Milestones along the way</h2>
+      </div>
+      <ol class="relative border-s-2 border-emerald-500/30 ps-8">
+        <li class="mb-10" data-aos="fade-up">
+          <span class="absolute -start-[9px] mt-1.5 h-4 w-4 rounded-full border-4 border-[hsl(var(--fm-surface-alt))] bg-emerald-500"></span>
+          <p class="text-xs font-bold uppercase tracking-wide text-emerald-600">2014</p>
+          <h3 class="font-display text-lg font-bold">First store opens downtown</h3>
+          <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/60">A single 400 sqm shop with one promise: fresh food, fair prices.</p>
+        </li>
+        <li class="mb-10" data-aos="fade-up">
+          <span class="absolute -start-[9px] mt-1.5 h-4 w-4 rounded-full border-4 border-[hsl(var(--fm-surface-alt))] bg-emerald-500"></span>
+          <p class="text-xs font-bold uppercase tracking-wide text-emerald-600">2017</p>
+          <h3 class="font-display text-lg font-bold">Loyalty program launches</h3>
+          <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/60">Over 50,000 members join within the first year.</p>
+        </li>
+        <li class="mb-10" data-aos="fade-up">
+          <span class="absolute -start-[9px] mt-1.5 h-4 w-4 rounded-full border-4 border-[hsl(var(--fm-surface-alt))] bg-emerald-500"></span>
+          <p class="text-xs font-bold uppercase tracking-wide text-emerald-600">2021</p>
+          <h3 class="font-display text-lg font-bold">Click &amp; collect + delivery rolled out</h3>
+          <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/60">Same-day delivery becomes available at every branch.</p>
+        </li>
+        <li data-aos="fade-up">
+          <span class="absolute -start-[9px] mt-1.5 h-4 w-4 rounded-full border-4 border-[hsl(var(--fm-surface-alt))] bg-emerald-500"></span>
+          <p class="text-xs font-bold uppercase tracking-wide text-emerald-600">2026</p>
+          <h3 class="font-display text-lg font-bold">48+ branches, 320,000+ loyalty members</h3>
+          <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/60">And we're just getting started.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+    <div class="mx-auto mb-14 max-w-2xl text-center">
+      <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">Meet the Team</p>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">The people behind every basket</h2>
+    </div>
+    <div id="team-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"></div>
+  </section>
+
+  <!-- ============ GALLERY (GLightbox) ============ -->
+  <section class="bg-[hsl(var(--fm-surface-alt))] py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mx-auto mb-14 max-w-2xl text-center">
+        <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">Inside FreshMart</p>
+        <h2 class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">A peek around our stores</h2>
+      </div>
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+        <a href="#gallery-produce" data-glightbox data-type="inline" class="fm-glightbox group relative flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white" data-aos="zoom-in">
+          <i class="ri-apple-line text-5xl opacity-80 transition group-hover:scale-110"></i>
+          <span class="absolute bottom-3 left-3 text-xs font-bold">Produce Aisle</span>
+        </a>
+        <a href="#gallery-bakery" data-glightbox data-type="inline" class="fm-glightbox group relative flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500 to-orange-700 text-white" data-aos="zoom-in" data-aos-delay="80">
+          <i class="ri-cake-2-line text-5xl opacity-80 transition group-hover:scale-110"></i>
+          <span class="absolute bottom-3 left-3 text-xs font-bold">Bakery Corner</span>
+        </a>
+        <a href="#gallery-dairy" data-glightbox data-type="inline" class="fm-glightbox group relative flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-700 text-white" data-aos="zoom-in" data-aos-delay="160">
+          <i class="ri-drop-line text-5xl opacity-80 transition group-hover:scale-110"></i>
+          <span class="absolute bottom-3 left-3 text-xs font-bold">Dairy Fridge</span>
+        </a>
+        <a href="#gallery-checkout" data-glightbox data-type="inline" class="fm-glightbox group relative flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-rose-500 to-pink-700 text-white" data-aos="zoom-in">
+          <i class="ri-store-2-line text-5xl opacity-80 transition group-hover:scale-110"></i>
+          <span class="absolute bottom-3 left-3 text-xs font-bold">Checkout Lane</span>
+        </a>
+        <a href="#gallery-loyalty" data-glightbox data-type="inline" class="fm-glightbox group relative flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500 to-violet-700 text-white" data-aos="zoom-in" data-aos-delay="80">
+          <i class="ri-vip-crown-2-line text-5xl opacity-80 transition group-hover:scale-110"></i>
+          <span class="absolute bottom-3 left-3 text-xs font-bold">Loyalty Desk</span>
+        </a>
+        <a href="#gallery-team" data-glightbox data-type="inline" class="fm-glightbox group relative flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-lime-500 to-emerald-700 text-white" data-aos="zoom-in" data-aos-delay="160">
+          <i class="ri-team-line text-5xl opacity-80 transition group-hover:scale-110"></i>
+          <span class="absolute bottom-3 left-3 text-xs font-bold">Our Team</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Inline lightbox content -->
+    <div class="hidden">
+      <div id="gallery-produce" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-apple-line mb-3 text-4xl text-emerald-600"></i><h3 class="font-display text-lg font-bold">Produce Aisle</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Restocked twice daily with farm-fresh fruit and vegetables.</p></div>
+      <div id="gallery-bakery" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-cake-2-line mb-3 text-4xl text-amber-600"></i><h3 class="font-display text-lg font-bold">Bakery Corner</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Fresh bread baked in-house every morning from 5 AM.</p></div>
+      <div id="gallery-dairy" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-drop-line mb-3 text-4xl text-sky-600"></i><h3 class="font-display text-lg font-bold">Dairy Fridge</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Temperature-controlled aisles keeping dairy perfectly chilled.</p></div>
+      <div id="gallery-checkout" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-store-2-line mb-3 text-4xl text-rose-600"></i><h3 class="font-display text-lg font-bold">Checkout Lane</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Fast self-checkout plus priority lanes for loyalty members.</p></div>
+      <div id="gallery-loyalty" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-vip-crown-2-line mb-3 text-4xl text-purple-600"></i><h3 class="font-display text-lg font-bold">Loyalty Desk</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Sign up, ask questions or redeem points face to face.</p></div>
+      <div id="gallery-team" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-team-line mb-3 text-4xl text-emerald-600"></i><h3 class="font-display text-lg font-bold">Our Team</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Friendly, trained staff ready to help you find the best deals.</p></div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+    <div data-cta="loyalty"></div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-600 text-white shadow-xl">
+  <i class="ri-arrow-up-line text-xl"></i>
+</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/countdown.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const icons = ['ri-store-2-line','ri-user-smile-line','ri-percent-line','ri-calendar-check-line'];
+    const statsEl = document.getElementById('about-stats');
+    FM_STATS.forEach((s, i) => {
+      statsEl.insertAdjacentHTML('beforeend', `
+        <div class="text-center">
+          <span class="mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-xl bg-white/15"><i class="${icons[i]} text-xl"></i></span>
+          <p class="font-display text-3xl font-extrabold"><span data-countup="${s.value}" data-suffix="${s.suffix}">0</span></p>
+          <p class="text-xs text-white/70">${s.label}</p>
+        </div>`);
+    });
+
+    const team = [
+      { name: 'Sarah Bloom', role: 'Chief Executive Officer', bg: 'from-emerald-400 to-teal-500' },
+      { name: 'James Okafor', role: 'Head of Fresh Produce', bg: 'from-amber-400 to-orange-500' },
+      { name: 'Lena Petrova', role: 'Loyalty Program Director', bg: 'from-sky-400 to-indigo-500' },
+      { name: 'Marco Rossi', role: 'Regional Operations Lead', bg: 'from-rose-400 to-pink-500' },
+    ];
+    FmRender.mount('team-grid', team, (m) => `
+      <div class="fm-card rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-6 text-center" data-aos="fade-up">
+        <span class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br ${m.bg} font-display text-2xl font-bold text-white">${m.name.split(' ').map(n=>n[0]).join('')}</span>
+        <h3 class="mt-4 font-display text-base font-bold">${m.name}</h3>
+        <p class="text-xs text-[hsl(var(--fm-ink))]/55">${m.role}</p>
+        <div class="mt-4 flex justify-center gap-3 text-sm">
+          <a href="#" aria-label="LinkedIn" class="flex h-8 w-8 items-center justify-center rounded-full border border-[hsl(var(--fm-border))] hover:border-emerald-500 hover:text-emerald-600"><i class="ri-linkedin-fill"></i></a>
+          <a href="#" aria-label="Twitter" class="flex h-8 w-8 items-center justify-center rounded-full border border-[hsl(var(--fm-border))] hover:border-emerald-500 hover:text-emerald-600"><i class="ri-twitter-x-line"></i></a>
+        </div>
+      </div>`);
+  });
+</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

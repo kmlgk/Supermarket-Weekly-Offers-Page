@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FreshMart — Home 2 | Weekly Catalog &amp; Grocery Deals</title>
+<meta name="description" content="Browse FreshMart's weekly catalog — rotating deal spotlights, category tabs, loyalty perks and store locator, all in one place." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+<link rel="canonical" href="home-2.html" />
+
+<script>
+(function(){
+  var t = localStorage.getItem('fm-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var d = localStorage.getItem('fm-dir') || 'ltr';
+  document.documentElement.classList.toggle('dark', t === 'dark');
+  document.documentElement.setAttribute('dir', d);
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" />
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+      display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+    } } },
+  };
+</script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="home-2.html" class="bg-[hsl(var(--fm-surface))] text-[hsl(var(--fm-ink))] antialiased">
+<a href="#main-content" class="fm-skip-link">Skip to main content</a>
+
+<div id="preloader" aria-hidden="true">
+  <div class="fm-basket-loader">
+    <svg viewBox="0 0 64 64" fill="none">
+      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#16a34a" stroke-width="3" stroke-linejoin="round"/>
+      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+
+<!-- Preloader failsafe: independent of every other script tag below, so
+     a hung/blocked CDN request (fonts, GSAP, Swiper, etc.) can never
+     leave the loading screen stuck (and thus never leave the page
+     feeling "unresponsive" to scroll/clicks for several seconds). -->
+<script>
+  setTimeout(function () {
+    var el = document.getElementById('preloader');
+    if (el) el.classList.add('fm-loaded');
+  }, 4000);
+</script>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div id="fm-page-transition" aria-hidden="true"></div>
+
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-transparent"></header>
+
+<main id="main-content">
+
+  <!-- ============ HERO SLIDER ============ -->
+  <section class="relative overflow-hidden pt-32 md:pt-40" aria-label="Weekly catalog highlights">
+    <div class="fm-swiper" data-swiper-config='{"effect":"fade","autoplay":{"delay":5500}}'>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="fm-animated-bg relative flex min-h-[560px] items-center overflow-hidden text-white">
+            <div class="pointer-events-none absolute -right-10 -top-10 h-72 w-72 rounded-full bg-white/10 fm-blob"></div>
+            <div class="mx-auto grid max-w-7xl items-center gap-10 px-6 py-20 md:grid-cols-2">
+              <div>
+                <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold backdrop-blur-md"><i class="ri-leaf-line"></i> Produce Spotlight</p>
+                <h1 class="font-display text-4xl font-extrabold leading-tight sm:text-5xl">Farm-fresh produce up to <span class="text-amber-300">38% off</span></h1>
+                <p class="mt-4 max-w-md text-white/80">Hand-picked fruit and vegetables delivered daily to every branch.</p>
+                <a href="#weekly-catalog" class="fm-btn fm-magnetic relative mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-7 py-3.5 text-sm font-bold text-emerald-950">Shop Produce <i class="ri-arrow-right-line"></i></a>
+              </div>
+              <div class="relative mx-auto hidden h-72 w-72 items-center justify-center rounded-full bg-white/10 backdrop-blur-md md:flex">
+                <i class="ri-apple-line fm-float text-[9rem] text-amber-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="relative flex min-h-[560px] items-center overflow-hidden bg-gradient-to-br from-sky-700 via-sky-800 to-slate-900 text-white">
+            <div class="pointer-events-none absolute -left-10 bottom-0 h-72 w-72 rounded-full bg-sky-400/20 fm-blob"></div>
+            <div class="mx-auto grid max-w-7xl items-center gap-10 px-6 py-20 md:grid-cols-2">
+              <div>
+                <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold backdrop-blur-md"><i class="ri-drop-line"></i> Dairy Spotlight</p>
+                <h1 class="font-display text-4xl font-extrabold leading-tight sm:text-5xl">Creamy dairy essentials at <span class="text-amber-300">30% off</span></h1>
+                <p class="mt-4 max-w-md text-white/80">Milk, cheese and yoghurt from trusted local farms, every week.</p>
+                <a href="#weekly-catalog" class="fm-btn fm-magnetic relative mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-7 py-3.5 text-sm font-bold text-emerald-950">Shop Dairy <i class="ri-arrow-right-line"></i></a>
+              </div>
+              <div class="relative mx-auto hidden h-72 w-72 items-center justify-center rounded-full bg-white/10 backdrop-blur-md md:flex">
+                <i class="ri-drop-line fm-float text-[9rem] text-sky-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="relative flex min-h-[560px] items-center overflow-hidden bg-gradient-to-br from-rose-700 via-rose-800 to-slate-900 text-white">
+            <div class="pointer-events-none absolute -right-10 bottom-0 h-72 w-72 rounded-full bg-rose-400/20 fm-blob"></div>
+            <div class="mx-auto grid max-w-7xl items-center gap-10 px-6 py-20 md:grid-cols-2">
+              <div>
+                <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold backdrop-blur-md"><i class="ri-restaurant-2-line"></i> Meat Spotlight</p>
+                <h1 class="font-display text-4xl font-extrabold leading-tight sm:text-5xl">Premium meat &amp; seafood at <span class="text-amber-300">31% off</span></h1>
+                <p class="mt-4 max-w-md text-white/80">Butcher-cut quality, portioned fresh for your family every week.</p>
+                <a href="#weekly-catalog" class="fm-btn fm-magnetic relative mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-7 py-3.5 text-sm font-bold text-emerald-950">Shop Meat <i class="ri-arrow-right-line"></i></a>
+              </div>
+              <div class="relative mx-auto hidden h-72 w-72 items-center justify-center rounded-full bg-white/10 backdrop-blur-md md:flex">
+                <i class="ri-restaurant-2-line fm-float text-[9rem] text-rose-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="fm-swiper-prev fm-swiper-nav absolute left-4 top-1/2 z-10 hidden -translate-y-1/2 md:flex"><i class="ri-arrow-left-s-line text-xl"></i></div>
+      <div class="fm-swiper-next fm-swiper-nav absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 md:flex"><i class="ri-arrow-right-s-line text-xl"></i></div>
+    </div>
+  </section>
+
+  <!-- ============ STATS BAND ============ -->
+  <section class="border-b border-[hsl(var(--fm-border))]">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-12 md:grid-cols-4">
+      <div id="stats-grid" class="contents"></div>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORY TABS ============ -->
+  <section id="weekly-catalog" class="scroll-mt-24 mx-auto max-w-7xl px-6 py-20 md:py-28 lg:scroll-mt-36">
+    <div class="mx-auto mb-10 max-w-2xl text-center">
+      <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">Weekly Catalog</p>
+      <h2 data-split-text class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">Browse this week's catalog by aisle</h2>
+    </div>
+
+    <div id="cat-tabs" data-isotope-filters="tab-deals-grid" class="fm-no-scrollbar mb-10 flex items-center justify-start gap-2 overflow-x-auto pb-2 md:justify-center">
+      <button data-filter="*" class="is-active shrink-0 rounded-full bg-emerald-600 px-5 py-2.5 text-xs font-bold text-white">All Aisles</button>
+    </div>
+
+    <div id="tab-deals-grid" data-isotope-container class="relative flex flex-wrap"></div>
+  </section>
+
+  <!-- ============ SPLIT PROMO ============ -->
+  <section class="mx-auto max-w-7xl px-6 pb-20 md:pb-28">
+    <div class="grid gap-6 md:grid-cols-2">
+      <div data-cta="loyalty" data-aos="fade-right"></div>
+      <div data-cta="branch" data-aos="fade-left"></div>
+    </div>
+  </section>
+
+  <!-- ============ DEAL SPOTLIGHT CAROUSEL ============ -->
+  <section class="bg-[hsl(var(--fm-surface-alt))] py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-10 flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
+        <div>
+          <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">Spotlight Deals</p>
+          <h2 class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">Hand-picked savings this week</h2>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="fm-swiper-prev-2 fm-swiper-nav"><i class="ri-arrow-left-s-line text-xl"></i></div>
+          <div class="fm-swiper-next-2 fm-swiper-nav"><i class="ri-arrow-right-s-line text-xl"></i></div>
+        </div>
+      </div>
+      <div class="fm-swiper" data-swiper-config='{"slidesPerView":1.15,"spaceBetween":20,"breakpoints":{"640":{"slidesPerView":2},"1024":{"slidesPerView":4}},"navigation":{"nextEl":".fm-swiper-next-2","prevEl":".fm-swiper-prev-2"}}'>
+        <div id="spotlight-swiper-wrapper" class="swiper-wrapper"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS MASONRY ============ -->
+  <section class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+    <div class="mx-auto mb-14 max-w-2xl text-center">
+      <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">Community Love</p>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">What our shoppers are saying</h2>
+    </div>
+    <div id="testimonials-masonry" class="columns-1 gap-6 sm:columns-2 lg:columns-4 [&>*]:mb-6 [&>*]:break-inside-avoid"></div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-6 pb-20 md:pb-28">
+    <div data-cta="app"></div>
+  </section>
+
+</main>
+
+<footer id="site-footer"></footer>
+
+<button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-600 text-white shadow-xl">
+  <i class="ri-arrow-up-line text-xl"></i>
+</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/countdown.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    FmRender.mount('tab-deals-grid', FM_DEALS, d => FmRender.dealCard(d, true));
+    FmRender.mount('spotlight-swiper-wrapper', FM_DEALS.slice(0, 8), d => `<div class="swiper-slide h-auto py-2">${FmRender.dealCard(d)}</div>`);
+    FmRender.mount('testimonials-masonry', FM_TESTIMONIALS.concat(FM_TESTIMONIALS.slice(0,2)), FmRender.testimonialCard);
+
+    const tabsEl = document.getElementById('cat-tabs');
+    FM_CATEGORIES.forEach(c => {
+      tabsEl.insertAdjacentHTML('beforeend', `<button data-filter="${c.id}" class="shrink-0 rounded-full border border-[hsl(var(--fm-border))] px-5 py-2.5 text-xs font-bold hover:border-emerald-500">${c.name}</button>`);
+    });
+
+    const statsEl = document.getElementById('stats-grid');
+    const icons = ['ri-store-2-line','ri-user-smile-line','ri-percent-line','ri-calendar-check-line'];
+    FM_STATS.forEach((s, i) => {
+      statsEl.insertAdjacentHTML('beforeend', `
+        <div class="text-center">
+          <span class="mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600"><i class="${icons[i]} text-xl"></i></span>
+          <p class="font-display text-2xl font-extrabold text-emerald-600"><span data-countup="${s.value}" data-suffix="${s.suffix}">0</span></p>
+          <p class="text-xs text-[hsl(var(--fm-ink))]/55">${s.label}</p>
+        </div>`);
+    });
+
+  });
+</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

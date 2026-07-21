@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Coming Soon — FreshMart Weekly Offers</title>
+<meta name="description" content="FreshMart's weekly offers page is getting a fresh new look. Leave your email and be first to know when we launch." />
+<meta name="robots" content="noindex" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+
+<script>
+(function(){
+  var t = localStorage.getItem('fm-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var d = localStorage.getItem('fm-dir') || 'ltr';
+  document.documentElement.classList.toggle('dark', t === 'dark');
+  document.documentElement.setAttribute('dir', d);
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" />
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+      display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+    } } },
+  };
+</script>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="coming-soon.html" class="bg-[hsl(var(--fm-surface))] text-[hsl(var(--fm-ink))] antialiased">
+
+<div id="preloader" aria-hidden="true">
+  <div class="fm-basket-loader">
+    <svg viewBox="0 0 64 64" fill="none">
+      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#16a34a" stroke-width="3" stroke-linejoin="round"/>
+      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+
+<!-- Preloader failsafe: independent of every other script tag below, so
+     a hung/blocked CDN request (fonts, GSAP, Swiper, etc.) can never
+     leave the loading screen stuck (and thus never leave the page
+     feeling "unresponsive" to scroll/clicks for several seconds). -->
+<script>
+  setTimeout(function () {
+    var el = document.getElementById('preloader');
+    if (el) el.classList.add('fm-loaded');
+  }, 4000);
+</script>
+
+
+<div class="fixed right-6 top-6 z-40 flex items-center gap-2">
+  <button id="theme-toggle" aria-label="Toggle dark mode" class="flex h-11 w-11 items-center justify-center rounded-full border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))]/70 backdrop-blur-md transition hover:border-emerald-500 hover:text-emerald-600">
+    <i class="ri-moon-line text-lg dark:hidden"></i>
+    <i class="ri-sun-line hidden text-lg dark:block"></i>
+  </button>
+</div>
+
+<main class="fm-animated-bg relative flex min-h-screen items-center overflow-hidden px-6 py-20 text-white">
+  <div class="pointer-events-none absolute -left-24 top-10 h-80 w-80 rounded-full bg-white/10 fm-blob"></div>
+  <div class="pointer-events-none absolute -right-16 bottom-0 h-96 w-96 rounded-full bg-amber-400/20 fm-blob"></div>
+
+  <div class="relative mx-auto max-w-2xl text-center">
+    <a href="index.html" class="mb-8 inline-flex items-center gap-2.5" aria-label="FreshMart home">
+      <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 backdrop-blur-md"><i class="ri-shopping-basket-2-fill text-3xl text-amber-300"></i></span>
+      <span class="font-display text-2xl font-extrabold">Fresh<span class="text-amber-300">Mart</span></span>
+    </a>
+
+    <p class="fm-reveal mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold backdrop-blur-md"><i class="ri-tools-line"></i> Scheduled Maintenance</p>
+    <h1 data-split-text class="font-display text-3xl font-extrabold leading-tight sm:text-5xl">Our weekly offers page is getting fresher</h1>
+    <p class="fm-reveal mx-auto mt-4 max-w-lg text-white/80">We're restocking the shelves with a brand-new experience — bigger savings, faster browsing and a smarter loyalty program. Back online very soon.</p>
+
+    <div data-countdown-box class="fm-reveal mt-10 flex items-center justify-center gap-3 sm:gap-4">
+      <div class="w-20 rounded-2xl bg-white/10 py-4 text-center backdrop-blur-md sm:w-24">
+        <p class="fm-countdown-box font-display text-3xl font-extrabold sm:text-4xl"><span class="fm-dd">00</span></p><p class="mt-1 text-[10px] uppercase tracking-widest text-white/60">Days</p>
+      </div>
+      <div class="w-20 rounded-2xl bg-white/10 py-4 text-center backdrop-blur-md sm:w-24">
+        <p class="fm-countdown-box font-display text-3xl font-extrabold sm:text-4xl"><span class="fm-hh">00</span></p><p class="mt-1 text-[10px] uppercase tracking-widest text-white/60">Hours</p>
+      </div>
+      <div class="w-20 rounded-2xl bg-white/10 py-4 text-center backdrop-blur-md sm:w-24">
+        <p class="fm-countdown-box font-display text-3xl font-extrabold sm:text-4xl"><span class="fm-mm">00</span></p><p class="mt-1 text-[10px] uppercase tracking-widest text-white/60">Minutes</p>
+      </div>
+      <div class="w-20 rounded-2xl bg-white/10 py-4 text-center backdrop-blur-md sm:w-24">
+        <p class="fm-countdown-box font-display text-3xl font-extrabold sm:text-4xl"><span class="fm-ss" data-countdown="2026-08-01T09:00:00">00</span></p><p class="mt-1 text-[10px] uppercase tracking-widest text-white/60">Seconds</p>
+      </div>
+    </div>
+
+    <form data-demo-form class="fm-reveal mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row" onsubmit="return false;">
+      <label for="notify-email" class="sr-only">Email address</label>
+      <input id="notify-email" type="email" required placeholder="Enter your email" class="w-full flex-1 rounded-full bg-white/15 px-5 py-3.5 text-sm placeholder-white/70 backdrop-blur-md outline-none" />
+      <button type="submit" class="fm-btn fm-magnetic relative flex shrink-0 items-center justify-center gap-2 rounded-full bg-amber-400 px-6 py-3.5 text-sm font-bold text-emerald-950">
+        Notify Me <i class="ri-notification-3-line"></i>
+      </button>
+    </form>
+
+    <div class="fm-reveal mt-10 flex items-center justify-center gap-4 text-lg">
+      <a href="#" aria-label="Facebook" class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20"><i class="ri-facebook-fill"></i></a>
+      <a href="#" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20"><i class="ri-instagram-line"></i></a>
+      <a href="#" aria-label="X" class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20"><i class="ri-twitter-x-line"></i></a>
+      <a href="#" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20"><i class="ri-youtube-line"></i></a>
+    </div>
+
+    <p class="fm-reveal mt-8 text-xs text-white/50">&copy; <span id="fm-year"></span> FreshMart. All rights reserved.</p>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/countdown.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const yearEl = document.getElementById('fm-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  });
+</script>
+</body>
+</html>

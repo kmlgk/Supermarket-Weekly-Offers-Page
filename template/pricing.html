@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Loyalty Membership Pricing — FreshMart</title>
+<meta name="description" content="Compare FreshMart loyalty membership tiers — Basic, Silver and Gold — and find the plan that saves you the most every week." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+<link rel="canonical" href="pricing.html" />
+
+<script>
+(function(){
+  var t = localStorage.getItem('fm-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var d = localStorage.getItem('fm-dir') || 'ltr';
+  document.documentElement.classList.toggle('dark', t === 'dark');
+  document.documentElement.setAttribute('dir', d);
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" />
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+      display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+    } } },
+  };
+</script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="pricing.html" class="bg-[hsl(var(--fm-surface))] text-[hsl(var(--fm-ink))] antialiased">
+<a href="#main-content" class="fm-skip-link">Skip to main content</a>
+
+<div id="preloader" aria-hidden="true">
+  <div class="fm-basket-loader">
+    <svg viewBox="0 0 64 64" fill="none">
+      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#16a34a" stroke-width="3" stroke-linejoin="round"/>
+      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+
+<!-- Preloader failsafe: independent of every other script tag below, so
+     a hung/blocked CDN request (fonts, GSAP, Swiper, etc.) can never
+     leave the loading screen stuck (and thus never leave the page
+     feeling "unresponsive" to scroll/clicks for several seconds). -->
+<script>
+  setTimeout(function () {
+    var el = document.getElementById('preloader');
+    if (el) el.classList.add('fm-loaded');
+  }, 4000);
+</script>
+
+<div id="scroll-progress" aria-hidden="true"></div>
+<div id="fm-page-transition" aria-hidden="true"></div>
+
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-transparent"></header>
+
+<main id="main-content">
+  <div id="breadcrumb" data-title="Loyalty Membership Pricing" data-subtitle="Simple, transparent tiers — the more you shop, the more you save." data-crumbs='[{"label":"Pricing","href":"pricing.html"}]'></div>
+
+  <!-- ============ PRICING TOGGLE + CARDS ============ -->
+  <section class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+    <div class="mx-auto mb-14 max-w-2xl text-center">
+      <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">Membership Plans</p>
+      <h2 data-split-text class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">Choose the loyalty tier that fits your basket</h2>
+      <p class="mt-3 text-[hsl(var(--fm-ink))]/65">Every plan earns points on weekly offers. Upgrade or downgrade any time — no contracts.</p>
+    </div>
+    <div id="pricing-grid" class="grid gap-8 md:grid-cols-3"></div>
+  </section>
+
+  <!-- ============ COMPARISON TABLE ============ -->
+  <section class="bg-[hsl(var(--fm-surface-alt))] py-20 md:py-28">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="mx-auto mb-14 max-w-2xl text-center">
+        <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">Compare Plans</p>
+        <h2 class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">Every benefit, side by side</h2>
+      </div>
+      <div class="overflow-x-auto rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))]">
+        <table class="w-full min-w-[640px] text-left text-sm">
+          <thead>
+            <tr class="border-b border-[hsl(var(--fm-border))]">
+              <th class="p-5 font-display font-bold">Feature</th>
+              <th class="p-5 text-center font-display font-bold">Basic</th>
+              <th class="p-5 text-center font-display font-bold text-emerald-600">Silver</th>
+              <th class="p-5 text-center font-display font-bold">Gold</th>
+            </tr>
+          </thead>
+          <tbody id="compare-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING FAQ ============ -->
+  <section class="mx-auto max-w-4xl px-6 py-20 md:py-28">
+    <div class="mx-auto mb-14 max-w-2xl text-center">
+      <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">FAQ</p>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">Pricing questions, answered</h2>
+    </div>
+    <div id="pricing-faq" class="space-y-3"></div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-6 pb-20 md:pb-28">
+    <div data-cta="loyalty"></div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-600 text-white shadow-xl">
+  <i class="ri-arrow-up-line text-xl"></i>
+</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/countdown.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    FmRender.mount('pricing-grid', FM_PRICING, FmRender.pricingCard);
+
+    const rows = [
+      { label: 'Points per $1 spent', vals: ['1', '2.5', '5'] },
+      { label: 'Early access to weekly offers', vals: ['—', '24 hrs', '48 hrs'] },
+      { label: 'Free delivery', vals: ['—', 'Click & collect', 'Home delivery'] },
+      { label: 'Birthday reward', vals: ['—', '✓', '✓'] },
+      { label: 'Priority checkout lane', vals: ['—', '✓', '✓'] },
+      { label: 'Dedicated concierge line', vals: ['—', '—', '✓'] },
+      { label: 'Annual loyalty bonus box', vals: ['—', '—', '✓'] },
+    ];
+    document.getElementById('compare-body').innerHTML = rows.map((r, i) => `
+      <tr class="${i % 2 === 0 ? '' : 'bg-[hsl(var(--fm-surface-alt))]'}">
+        <td class="p-5 font-medium">${r.label}</td>
+        <td class="p-5 text-center text-[hsl(var(--fm-ink))]/60">${r.vals[0]}</td>
+        <td class="p-5 text-center font-semibold text-emerald-600">${r.vals[1]}</td>
+        <td class="p-5 text-center text-[hsl(var(--fm-ink))]/60">${r.vals[2]}</td>
+      </tr>`).join('');
+
+    const faqs = [
+      { q: 'Is the Basic card really free?', a: 'Yes — the Basic loyalty card is free forever, no strings attached. You still earn points on every purchase.' },
+      { q: 'Can I cancel Silver or Gold anytime?', a: 'Absolutely, there are no contracts. Cancel or downgrade anytime from your account settings.' },
+      { q: 'Do points expire?', a: 'Points remain valid for 24 months from the date they are earned.' },
+      { q: 'Can I share my card with family?', a: 'Gold Elite members can add up to 3 linked family cards that share the same points balance.' },
+    ];
+    document.getElementById('pricing-faq').innerHTML = faqs.map((f,i) => `
+      <div class="fm-accordion-item overflow-hidden rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] ${i===0?'fm-open':''}">
+        <button class="fm-accordion-toggle flex w-full items-center justify-between p-5 text-left font-display font-bold">
+          ${f.q} <i class="ri-arrow-down-s-line fm-accordion-icon text-xl text-emerald-600"></i>
+        </button>
+        <div class="fm-accordion-body"><p class="px-5 pb-5 text-sm text-[hsl(var(--fm-ink))]/60">${f.a}</p></div>
+      </div>`).join('');
+  });
+</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

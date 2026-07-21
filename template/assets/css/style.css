@@ -1,0 +1,325 @@
+/* =========================================================
+   FreshMart — Supermarket Weekly Offers Template
+   Custom stylesheet (works alongside Tailwind CDN utilities)
+   ========================================================= */
+
+:root {
+  --fm-primary: 142 71% 35%;        /* emerald green */
+  --fm-primary-dark: 142 71% 28%;
+  --fm-accent: 24 95% 53%;          /* deal orange */
+  --fm-accent-2: 45 93% 51%;        /* discount yellow */
+  --fm-ink: 222 22% 12%;
+  --fm-surface: 0 0% 100%;
+  --fm-surface-alt: 150 30% 97%;
+  --fm-border: 220 14% 90%;
+  --fm-radius: 1rem;
+  --fm-header-h: 84px;
+}
+
+html.dark {
+  --fm-ink: 210 20% 96%;
+  --fm-surface: 222 30% 9%;
+  --fm-surface-alt: 222 26% 12%;
+  --fm-border: 220 18% 20%;
+}
+
+/* Lenis does ALL scroll smoothing itself via rapid, per-frame
+   window.scrollTo() calls. A CSS `scroll-behavior: smooth` on html
+   fights that directly: the browser tries to smooth-animate each of
+   Lenis's own tiny per-frame position updates, interrupting itself
+   before any single increment finishes rendering — net result, the
+   page never visibly moves at all despite Lenis's internal state
+   being 100% correct. Anywhere smooth scrolling is wanted without
+   Lenis (e.g. the reduced-motion fallback path in main.js), it's
+   requested explicitly per-call via `behavior: 'smooth'` in JS —
+   never rely on this CSS property being 'smooth' anywhere. */
+html { scroll-behavior: auto; }
+html.lenis { height: auto; }
+
+/* overflow-x must be pinned on html, not just body: html is the actual
+   root scroller, and in RTL its default scroll anchor is the right edge
+   of whatever scrollable width exists — any stray horizontal overflow
+   (e.g. the infinite marquee track) silently shifts the whole visible
+   viewport off to the right in RTL, blanking out the left ~40% of the
+   page and hiding the header nav. Belt-and-braces on both elements. */
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  background-color: hsl(var(--fm-surface));
+  color: hsl(var(--fm-ink));
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+}
+
+[dir="rtl"] body { font-family: 'Cairo', 'Inter', sans-serif; }
+
+::selection { background: hsl(var(--fm-primary)); color: #fff; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: hsl(var(--fm-surface-alt)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--fm-primary) / 0.6); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--fm-primary)); }
+
+/* =========================
+   Preloader
+   ========================= */
+#preloader {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  background: hsl(var(--fm-surface));
+  transition: opacity .6s ease, visibility .6s ease;
+  /* Purely a visual loading screen — it must never swallow wheel/touch
+     input. Without this, the page feels unresponsive to scrolling for
+     however long window `load` takes (every CDN script/stylesheet),
+     since this full-viewport overlay was eating every pointer event
+     until it faded out. Scroll position still updates underneath. */
+  pointer-events: none;
+}
+#preloader.fm-loaded { opacity: 0; visibility: hidden; }
+.fm-basket-loader {
+  width: 64px; height: 64px; position: relative;
+}
+.fm-basket-loader svg { width: 100%; height: 100%; }
+.fm-basket-loader .fm-basket-path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: fm-draw 1.4s ease forwards infinite alternate;
+}
+@keyframes fm-draw { to { stroke-dashoffset: 0; } }
+
+/* =========================
+   Scroll progress bar
+   ========================= */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, hsl(var(--fm-primary)), hsl(var(--fm-accent)));
+  z-index: 9998;
+}
+
+/* =========================
+   Header / Glassmorphism
+   ========================= */
+#site-header {
+  transition: background-color .4s ease, box-shadow .4s ease, backdrop-filter .4s ease, padding .3s ease;
+}
+#site-header.fm-scrolled {
+  background: hsl(var(--fm-surface) / 0.72);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: 0 8px 30px -12px rgb(0 0 0 / 0.15);
+  border-color: hsl(var(--fm-border) / .6);
+}
+
+.fm-mega-panel {
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+}
+.group:hover .fm-mega-panel, .fm-mega-panel:hover, .fm-mega-panel.fm-open {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+
+/* Mobile menu */
+/* The panel is anchored with the `right-0` Tailwind class (LTR: hides by
+   translating further right, off-screen). In RTL it must also flip which
+   edge it's anchored to — otherwise translateX(-100%) alone slides the
+   opaque panel INTO the viewport instead of off it, covering the header.
+   That anchor swap (right/left) is instant while the transform swap is
+   transitioned, so for one frame the panel is at its OLD transform value
+   relative to its NEW anchor — which briefly puts it back on-screen and
+   makes it visibly sweep across the page whenever RTL/LTR is toggled,
+   even though it's closed the whole time. `visibility: hidden` on the
+   closed state (delayed on close, instant on open, via transition-delay)
+   fixes this: since dir toggling never touches `visibility`, the panel
+   stays un-painted no matter what its transform is doing mid-toggle. */
+#mobile-menu-panel {
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform .45s cubic-bezier(.65,0,.35,1), visibility 0s linear .45s;
+}
+[dir="rtl"] #mobile-menu-panel {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+}
+#mobile-menu-panel.fm-open {
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform .45s cubic-bezier(.65,0,.35,1), visibility 0s linear;
+}
+.fm-accordion-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+.fm-accordion-item.fm-open .fm-accordion-body { max-height: 500px; }
+.fm-accordion-item.fm-open .fm-accordion-icon { transform: rotate(180deg); }
+.fm-accordion-icon { transition: transform .3s ease; }
+
+/* =========================
+   Buttons & magnetic effect
+   ========================= */
+.fm-btn { position: relative; overflow: hidden; isolation: isolate; }
+.fm-btn::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(120deg, hsl(var(--fm-accent)), hsl(var(--fm-accent-2)));
+  transform: scaleX(0); transform-origin: left; transition: transform .45s ease;
+}
+.fm-btn:hover::before { transform: scaleX(1); }
+.fm-magnetic { display: inline-flex; will-change: transform; }
+
+/* =========================
+   Gradient text / animated gradient bg
+   ========================= */
+.fm-gradient-text {
+  background: linear-gradient(100deg, hsl(var(--fm-primary)), hsl(var(--fm-accent)) 60%, hsl(var(--fm-accent-2)));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  background-size: 200% auto; animation: fm-gradient-move 6s linear infinite;
+}
+@keyframes fm-gradient-move { to { background-position: 200% center; } }
+
+.fm-animated-bg {
+  background: linear-gradient(-45deg, hsl(var(--fm-primary)/.9), hsl(var(--fm-primary-dark)), #0f5132, hsl(var(--fm-accent)/.8));
+  background-size: 400% 400%; animation: fm-bg-shift 14s ease infinite;
+}
+@keyframes fm-bg-shift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+/* Blob shapes */
+.fm-blob { border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%; animation: fm-blob-morph 9s ease-in-out infinite; }
+@keyframes fm-blob-morph {
+  0%,100% { border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%; }
+  50% { border-radius: 60% 40% 30% 70% / 55% 65% 35% 45%; }
+}
+
+/* Marquee */
+.fm-marquee-track { display: flex; width: max-content; animation: fm-marquee 28s linear infinite; }
+@keyframes fm-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+[dir="rtl"] .fm-marquee-track { animation-direction: reverse; }
+
+/* Card hover */
+.fm-card { transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease; }
+.fm-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -18px rgb(0 0 0 / .25); }
+
+.fm-tilt { transition: transform .3s ease; transform-style: preserve-3d; }
+
+/* Deal ribbon */
+.fm-ribbon { clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%); }
+
+/* Countdown */
+.fm-countdown-box { font-variant-numeric: tabular-nums; }
+
+/* Section reveal helpers (used with GSAP / AOS) */
+.fm-reveal { opacity: 0; transform: translateY(40px); }
+.fm-split-line { overflow: hidden; }
+
+/* Loyalty card */
+.fm-loyalty-card {
+  background: linear-gradient(135deg, hsl(var(--fm-primary)) 0%, hsl(var(--fm-primary-dark)) 45%, #0b3d24 100%);
+  position: relative; overflow: hidden;
+}
+.fm-loyalty-card::after {
+  content: ''; position: absolute; width: 220px; height: 220px; border-radius: 999px;
+  background: hsl(var(--fm-accent) / .35); filter: blur(40px); top: -60px; right: -60px;
+}
+
+/* Store status dot */
+.fm-status-dot { box-shadow: 0 0 0 0 rgb(34 197 94 / 0.7); animation: fm-pulse 2s infinite; }
+@keyframes fm-pulse {
+  0% { box-shadow: 0 0 0 0 rgb(34 197 94 / .6); }
+  70% { box-shadow: 0 0 0 10px rgb(34 197 94 / 0); }
+  100% { box-shadow: 0 0 0 0 rgb(34 197 94 / 0); }
+}
+
+/* Isotope filter — width is set per-context via Tailwind utility
+   classes on the item itself, not here, so it can vary responsively */
+.fm-grid-sizer { width: 100%; }
+
+/* Swiper pagination / nav tweaks */
+.swiper-pagination-bullet { background: hsl(var(--fm-primary)) !important; opacity: .35; }
+.swiper-pagination-bullet-active { opacity: 1; }
+.fm-swiper-nav {
+  width: 46px; height: 46px; border-radius: 999px; display: flex; align-items: center; justify-content: center;
+  background: hsl(var(--fm-surface)); box-shadow: 0 10px 30px -10px rgb(0 0 0 / .3); cursor: pointer;
+  transition: background .3s ease, color .3s ease, transform .3s ease;
+}
+.fm-swiper-nav:hover { background: hsl(var(--fm-primary)); color: #fff; transform: scale(1.06); }
+
+/* Back to top */
+#back-to-top {
+  opacity: 0; visibility: hidden; transform: translateY(12px);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s ease;
+}
+#back-to-top.fm-show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+/* Utility: hide scrollbar */
+.fm-no-scrollbar::-webkit-scrollbar { display: none; }
+.fm-no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Focus visibility for a11y */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid hsl(var(--fm-accent)); outline-offset: 2px; border-radius: 4px;
+}
+
+/* Skip link — clip-based "sr-only" hiding, not an off-screen `left`
+   offset. A physical `left: -999px` is exactly the kind of hack that
+   breaks under `dir="rtl"`: it silently added 999px of extra scrollable
+   width to the whole document, and in RTL that shifted the entire
+   viewport's paint/scroll anchor, blanking out most of the page. */
+.fm-skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.fm-skip-link:focus {
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  left: 1rem;
+  top: 1rem;
+  z-index: 99999;
+  background: hsl(var(--fm-primary));
+  color: #fff;
+  padding: .75rem 1.25rem;
+  border-radius: .5rem;
+}
+
+/* Page transition overlay */
+#fm-page-transition {
+  position: fixed; inset: 0; z-index: 10000; pointer-events: none;
+  background: hsl(var(--fm-primary)); transform: scaleY(0); transform-origin: bottom;
+}
+#fm-page-transition.fm-active { animation: fm-wipe-in .5s ease forwards; }
+
+@keyframes fm-wipe-in { to { transform: scaleY(1); } }
+
+/* Lazy image fade-in */
+img[data-src] { filter: blur(12px); transition: filter .5s ease; }
+img.fm-loaded { filter: blur(0); }
+
+/* Floating hero icon cards */
+.fm-float { animation: fm-float 5s ease-in-out infinite; }
+.fm-float-delay { animation: fm-float 5s ease-in-out infinite; animation-delay: 1.4s; }
+.fm-float-delay-2 { animation: fm-float 6s ease-in-out infinite; animation-delay: 2.2s; }
+@keyframes fm-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+
+/* Hero radial glow */
+.fm-radial-glow {
+  background: radial-gradient(circle at 30% 30%, hsl(var(--fm-accent) / .35), transparent 60%),
+              radial-gradient(circle at 70% 70%, hsl(var(--fm-primary) / .35), transparent 60%);
+}
+
+/* Section eyebrow underline */
+.fm-eyebrow { position: relative; }
+
+/* Print */
+@media print { #site-header, #site-footer, #back-to-top, #mobile-menu-panel { display: none !important; } }

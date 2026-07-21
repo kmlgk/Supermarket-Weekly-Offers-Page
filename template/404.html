@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 — Page Not Found | FreshMart</title>
+<meta name="description" content="The page you're looking for has been moved or doesn't exist. Head back to FreshMart's weekly offers." />
+<meta name="robots" content="noindex" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+
+<script>
+(function(){
+  var t = localStorage.getItem('fm-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var d = localStorage.getItem('fm-dir') || 'ltr';
+  document.documentElement.classList.toggle('dark', t === 'dark');
+  document.documentElement.setAttribute('dir', d);
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" />
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: { fontFamily: {
+      sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+      display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+    } } },
+  };
+</script>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="404.html" class="bg-[hsl(var(--fm-surface))] text-[hsl(var(--fm-ink))] antialiased">
+
+<div id="preloader" aria-hidden="true">
+  <div class="fm-basket-loader">
+    <svg viewBox="0 0 64 64" fill="none">
+      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#16a34a" stroke-width="3" stroke-linejoin="round"/>
+      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+
+<!-- Preloader failsafe: independent of every other script tag below, so
+     a hung/blocked CDN request (fonts, GSAP, Swiper, etc.) can never
+     leave the loading screen stuck (and thus never leave the page
+     feeling "unresponsive" to scroll/clicks for several seconds). -->
+<script>
+  setTimeout(function () {
+    var el = document.getElementById('preloader');
+    if (el) el.classList.add('fm-loaded');
+  }, 4000);
+</script>
+
+<div id="fm-page-transition" aria-hidden="true"></div>
+
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-transparent"></header>
+
+<main class="fm-radial-glow relative flex min-h-screen items-center overflow-hidden px-6 pt-32 pb-20">
+  <div class="pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-emerald-500/10 fm-blob"></div>
+  <div class="pointer-events-none absolute -right-16 bottom-10 h-80 w-80 rounded-full bg-amber-400/10 fm-blob"></div>
+
+  <div class="mx-auto max-w-2xl text-center">
+    <div class="relative mx-auto mb-8 flex h-40 w-40 items-center justify-center" data-aos="zoom-in">
+      <span class="fm-float absolute h-40 w-40 rounded-full bg-emerald-500/10"></span>
+      <i class="ri-shopping-basket-2-line text-7xl text-emerald-600/70"></i>
+      <span class="absolute -right-2 -top-2 flex h-10 w-10 items-center justify-center rounded-full bg-rose-500 text-sm font-extrabold text-white shadow-lg">?</span>
+    </div>
+    <p class="fm-reveal font-display text-7xl font-extrabold text-emerald-600 sm:text-8xl">404</p>
+    <h1 data-split-text class="mt-4 font-display text-2xl font-extrabold tracking-tight sm:text-3xl">Looks like this aisle is empty</h1>
+    <p class="fm-reveal mt-4 text-[hsl(var(--fm-ink))]/65">The page you're looking for has been moved, renamed, or maybe it never existed. Let's get you back to this week's freshest offers.</p>
+    <div class="fm-reveal mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a href="index.html" class="fm-btn fm-magnetic relative flex items-center gap-2 rounded-full bg-emerald-600 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-emerald-600/30">
+        <i class="ri-home-4-line"></i> Back to Home
+      </a>
+      <a href="contact.html" class="fm-magnetic flex items-center gap-2 rounded-full border border-[hsl(var(--fm-border))] px-7 py-3.5 text-sm font-bold hover:border-emerald-500 hover:text-emerald-600">
+        <i class="ri-customer-service-2-line"></i> Contact Support
+      </a>
+    </div>
+    <div class="fm-reveal mx-auto mt-10 flex max-w-md items-center gap-3 rounded-full border border-[hsl(var(--fm-border))] px-5 py-3">
+      <i class="ri-search-line text-[hsl(var(--fm-ink))]/50"></i>
+      <label for="lost-search" class="sr-only">Search FreshMart</label>
+      <input id="lost-search" type="search" placeholder="Search products or pages..." class="w-full bg-transparent text-sm outline-none" />
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
