@@ -6,6 +6,7 @@
 <title>Contact Us &amp; Branch Locator — FreshMart</title>
 <meta name="description" content="Get in touch with FreshMart or find your nearest branch with live store hours, phone numbers and directions." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+<meta name="theme-color" content="#107f49" />
 <link rel="canonical" href="contact.html" />
 
 <script>
@@ -26,10 +27,17 @@
 <script>
   tailwind.config = {
     darkMode: 'class',
-    theme: { extend: { fontFamily: {
-      sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-      display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-    } } },
+    theme: { extend: {
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+      },
+      colors: {
+        emerald: { 50:'#edfdf5', 100:'#d6fae9', 200:'#adf5d2', 300:'#6eedb0', 400:'#25e488', 500:'#18bf6e', 600:'#107f49', 700:'#0d683c', 800:'#0b5632', 900:'#06321d', 950:'#042012' },
+        amber: { 50:'#fef9f1', 100:'#fbeeda', 200:'#f7d9ab', 300:'#f2c178', 400:'#eca841', 500:'#e99920', 600:'#cc8314', 700:'#a76b11', 800:'#8b590e', 900:'#744a0b', 950:'#412a06' },
+        rose: { 50:'#fdf2f2', 100:'#fadcde', 200:'#f4b8bc', 300:'#ee8c92', 400:'#e8646d', 500:'#d11f2b', 600:'#ad1a24', 700:'#92161e', 800:'#81131b', 900:'#430a0e', 950:'#280608' },
+      },
+    } },
   };
 </script>
 
@@ -44,8 +52,8 @@
 <div id="preloader" aria-hidden="true">
   <div class="fm-basket-loader">
     <svg viewBox="0 0 64 64" fill="none">
-      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#16a34a" stroke-width="3" stroke-linejoin="round"/>
-      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#107f49" stroke-width="3" stroke-linejoin="round"/>
+      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#eca841" stroke-width="3" stroke-linecap="round"/>
     </svg>
   </div>
 </div>
@@ -80,19 +88,19 @@
         <div class="mt-8 space-y-4">
           <div class="flex items-start gap-4 rounded-2xl border border-[hsl(var(--fm-border))] p-5" data-aos="fade-up">
             <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600"><i class="ri-map-pin-2-line text-xl"></i></span>
-            <div><p class="font-display font-bold">Head Office</p><p class="text-sm text-[hsl(var(--fm-ink))]/60">221 Market Street, City Center</p></div>
+            <div><p class="font-display font-bold">Head Office</p><p class="text-sm text-[hsl(var(--fm-ink))]/65">221 Market Street, City Center</p></div>
           </div>
           <div class="flex items-start gap-4 rounded-2xl border border-[hsl(var(--fm-border))] p-5" data-aos="fade-up" data-aos-delay="80">
             <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-amber-600"><i class="ri-phone-line text-xl"></i></span>
-            <div><p class="font-display font-bold">Call Us</p><p class="text-sm text-[hsl(var(--fm-ink))]/60">+1 (555) 010-2200</p></div>
+            <div><p class="font-display font-bold">Call Us</p><p class="text-sm text-[hsl(var(--fm-ink))]/65">+1 (555) 010-2200</p></div>
           </div>
           <div class="flex items-start gap-4 rounded-2xl border border-[hsl(var(--fm-border))] p-5" data-aos="fade-up" data-aos-delay="160">
             <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600"><i class="ri-mail-line text-xl"></i></span>
-            <div><p class="font-display font-bold">Email Us</p><p class="text-sm text-[hsl(var(--fm-ink))]/60">hello@freshmart.example</p></div>
+            <div><p class="font-display font-bold">Email Us</p><p class="text-sm text-[hsl(var(--fm-ink))]/65">hello@freshmart.example</p></div>
           </div>
           <div class="flex items-start gap-4 rounded-2xl border border-[hsl(var(--fm-border))] p-5" data-aos="fade-up" data-aos-delay="240">
             <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-rose-500/10 text-rose-600"><i class="ri-time-line text-xl"></i></span>
-            <div><p class="font-display font-bold">Support Hours</p><p class="text-sm text-[hsl(var(--fm-ink))]/60">Mon–Sun: 7:00 AM – 11:00 PM</p></div>
+            <div><p class="font-display font-bold">Support Hours</p><p class="text-sm text-[hsl(var(--fm-ink))]/65">Mon–Sun: 7:00 AM – 11:00 PM</p></div>
           </div>
         </div>
       </div>
@@ -142,7 +150,7 @@
 
       <div class="mb-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center">
         <div class="flex flex-1 items-center gap-3 rounded-full border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] px-5 py-3 sm:max-w-md">
-          <i class="ri-search-line text-[hsl(var(--fm-ink))]/50"></i>
+          <i class="ri-search-line text-[hsl(var(--fm-ink))]/65"></i>
           <label for="branch-search" class="sr-only">Search branches</label>
           <input id="branch-search" type="search" placeholder="Search by branch name or city..." class="w-full bg-transparent text-sm outline-none" />
         </div>

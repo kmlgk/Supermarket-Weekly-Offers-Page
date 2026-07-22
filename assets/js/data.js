@@ -4,14 +4,187 @@
    ========================================================= */
 
 const FM_CATEGORIES = [
-  { id: 'produce', name: 'Fruits & Vegetables', icon: 'ri-apple-line', count: 128, color: 'emerald' },
-  { id: 'dairy', name: 'Dairy & Eggs', icon: 'ri-drop-line', count: 64, color: 'sky' },
-  { id: 'bakery', name: 'Bakery', icon: 'ri-cake-2-line', count: 42, color: 'amber' },
-  { id: 'snacks', name: 'Snacks & Sweets', icon: 'ri-cup-line', count: 96, color: 'orange' },
-  { id: 'meat', name: 'Meat & Seafood', icon: 'ri-restaurant-2-line', count: 58, color: 'rose' },
-  { id: 'beverages', name: 'Beverages', icon: 'ri-goblet-line', count: 74, color: 'indigo' },
-  { id: 'frozen', name: 'Frozen Foods', icon: 'ri-snowflake-line', count: 39, color: 'cyan' },
-  { id: 'household', name: 'Household', icon: 'ri-home-smile-2-line', count: 51, color: 'lime' },
+  { id: 'produce', name: 'Fruits & Vegetables', icon: 'ri-apple-line', count: 128, color: 'emerald', img: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=500&q=65&auto=format&fit=crop' },
+  { id: 'dairy', name: 'Dairy & Eggs', icon: 'ri-drop-line', count: 64, color: 'sky', img: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&q=65&auto=format&fit=crop' },
+  { id: 'bakery', name: 'Bakery', icon: 'ri-cake-2-line', count: 42, color: 'amber', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=65&auto=format&fit=crop' },
+  { id: 'snacks', name: 'Snacks & Sweets', icon: 'ri-cup-line', count: 96, color: 'orange', img: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=500&q=65&auto=format&fit=crop' },
+  { id: 'meat', name: 'Meat & Seafood', icon: 'ri-restaurant-2-line', count: 58, color: 'rose', img: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=500&q=65&auto=format&fit=crop' },
+  { id: 'beverages', name: 'Beverages', icon: 'ri-goblet-line', count: 74, color: 'indigo', img: 'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=500&q=65&auto=format&fit=crop' },
+  { id: 'frozen', name: 'Frozen Foods', icon: 'ri-snowflake-line', count: 39, color: 'cyan', img: 'https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=500&q=65&auto=format&fit=crop' },
+  { id: 'household', name: 'Household', icon: 'ri-home-smile-2-line', count: 51, color: 'lime', img: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?w=500&q=65&auto=format&fit=crop' },
+];
+
+/* Each service carries everything both services.html (card) and
+   service-details.html (full page, selected via ?service=<id>) need,
+   so there is exactly one place to edit per service. */
+const FM_SERVICES = [
+  {
+    id: 'weekly-offers', icon: 'ri-price-tag-3-line', color: 'emerald',
+    title: 'Weekly Offers', text: 'Rotating discounts across produce, dairy, bakery and more — every single week.',
+    hook: 'Fresh discounts that actually move the needle on your basket',
+    subtitle: "Fresh discounts across every aisle, refreshed every Monday morning.",
+    img: 'https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=900&q=65&auto=format&fit=crop',
+    overview: [
+      "Every Monday, FreshMart refreshes its offers across every category — from fresh produce to household essentials. Prices are chosen to genuinely lower your basket total, not just create the appearance of a discount.",
+      "Loyalty members get 24-hour early access before offers go public in-store, so Silver and Gold members can plan their shopping trip around the best deals before anyone else sees them.",
+    ],
+    features: [
+      { icon: 'ri-refresh-line', title: 'Refreshed Every Week', text: 'New discounts land every Monday across all 8 categories.' },
+      { icon: 'ri-vip-crown-2-line', title: 'Loyalty Early Access', text: 'Silver and Gold members see offers 24 hours before anyone else.' },
+      { icon: 'ri-price-tag-3-line', title: 'Real Savings, Verified', text: 'Every discount is benchmarked against a 90-day average price.' },
+      { icon: 'ri-notification-3-line', title: 'Deal Alerts', text: 'Opt in to get notified the moment your favorite items go on offer.' },
+    ],
+    info: { heading: 'How offers are chosen', rows: [
+      ['Refresh cycle', 'Every Monday, 12:01 AM'],
+      ['Loyalty early access', '24 hours (Silver & Gold)'],
+      ['Average weekly savings', '15% off basket total'],
+      ['Categories covered', 'All 8 aisles, every week'],
+    ] },
+    faqs: [
+      { q: 'How do weekly offers work?', a: 'Every Monday we refresh discounts across every category — from fresh produce to household essentials. Loyalty members get 24-hour early access.' },
+      { q: 'Can I combine weekly offers with loyalty discounts?', a: 'Absolutely — weekly offers and loyalty points stack, so Silver and Gold members save even more.' },
+      { q: "Where can I see this week's offers?", a: 'Check the Weekly Offers section on our homepage, or browse in-store — every shelf tag shows the current discount.' },
+    ],
+  },
+  {
+    id: 'delivery', icon: 'ri-truck-line', color: 'amber',
+    title: 'Home Delivery', text: 'Same-day delivery slots, free over $50, available at every branch nationwide.',
+    hook: 'Groceries delivered fresh, right to your door',
+    subtitle: 'Same-day delivery from your nearest FreshMart branch, free on orders over $50.',
+    img: 'https://images.unsplash.com/photo-1543168256-418811576931?w=900&q=65&auto=format&fit=crop',
+    overview: [
+      "FreshMart's home delivery brings this week's offers straight to your kitchen. Choose a delivery slot that suits you, and our pickers hand-select the freshest produce and best-priced essentials from your nearest branch.",
+      "Delivery is completely free on orders over $50, with flat-rate delivery on smaller baskets. Loyalty members enjoy priority slots and reduced delivery fees on every tier.",
+    ],
+    features: [
+      { icon: 'ri-time-line', title: 'Same-Day Slots', text: 'Order before 2 PM for delivery the same evening.' },
+      { icon: 'ri-shield-check-line', title: 'Freshness Guarantee', text: "Not happy with an item? We'll refund or replace it free." },
+      { icon: 'ri-map-pin-time-line', title: 'Live Order Tracking', text: 'Track your basket from picking to your doorstep in real time.' },
+      { icon: 'ri-vip-crown-2-line', title: 'Loyalty Priority', text: 'Gold members get first access to limited delivery slots.' },
+    ],
+    info: { heading: 'Delivery pricing', rows: [
+      ['Orders over $50', 'Free'],
+      ['Orders $25 – $50', '$3.99'],
+      ['Orders under $25', '$5.99'],
+    ] },
+    faqs: [
+      { q: 'What areas does delivery cover?', a: 'Every FreshMart branch delivers within a 10 km radius. Enter your postcode at checkout to confirm coverage.' },
+      { q: 'Can I schedule a delivery for later in the week?', a: 'Yes, you can book any available slot up to 7 days in advance.' },
+      { q: 'What if an item is out of stock?', a: 'Our pickers will contact you to suggest a substitute or refund the item automatically.' },
+    ],
+  },
+  {
+    id: 'click-collect', icon: 'ri-store-2-line', color: 'sky',
+    title: 'Click & Collect', text: 'Order online and collect in-store within the hour, no queue required.',
+    hook: 'Skip the queue — your basket, ready when you are',
+    subtitle: 'Order online, skip the queue, and collect in-store within the hour.',
+    img: 'https://images.unsplash.com/photo-1506617420156-8e4536971650?w=900&q=65&auto=format&fit=crop',
+    overview: [
+      "Click & Collect lets you shop the full FreshMart range online and pick it up at a dedicated counter in your nearest branch — no queueing, no waiting at checkout.",
+      "Most orders are ready within 60 minutes, and you'll get a notification the moment your basket is packed and waiting for you.",
+    ],
+    features: [
+      { icon: 'ri-timer-flash-line', title: 'Ready in 60 Minutes', text: 'Most orders are packed and ready within the hour.' },
+      { icon: 'ri-parking-line', title: 'Dedicated Pickup Bay', text: 'Drive-up collection points at every branch car park.' },
+      { icon: 'ri-smartphone-line', title: 'Order Tracking', text: "Get a notification the moment your basket is ready." },
+      { icon: 'ri-refund-2-line', title: 'Free to Use', text: 'No service fee — pay only for what you order.' },
+    ],
+    info: { heading: 'Collection windows', rows: [
+      ['Standard pickup', 'Within 60 minutes'],
+      ['Priority pickup (Gold)', 'Within 30 minutes'],
+      ['Service fee', 'Free'],
+      ['Available at', 'All 48+ branches'],
+    ] },
+    faqs: [
+      { q: 'Do I need to pay online or in-store?', a: 'You can pay online at checkout, or in-store when you collect — whichever you prefer.' },
+      { q: 'How will I know my order is ready?', a: "You'll get an SMS and app notification the moment your basket is packed." },
+      { q: 'Can I change my order after placing it?', a: 'Yes, up to 30 minutes after ordering, by contacting your branch directly.' },
+    ],
+  },
+  {
+    id: 'loyalty', icon: 'ri-vip-crown-2-line', color: 'rose',
+    title: 'Loyalty Rewards', text: 'Earn points on every purchase and redeem instantly at checkout.',
+    hook: 'Turn every purchase into real, stackable savings',
+    subtitle: 'Earn points on every purchase and redeem them for instant discounts.',
+    img: 'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=900&q=65&auto=format&fit=crop',
+    overview: [
+      "Every FreshMart purchase earns loyalty points, whether you shop in-store, online, or via click & collect. Points build automatically the moment you scan your card at checkout.",
+      "Upgrade to Silver or Gold to earn faster, unlock early access to weekly offers, and enjoy perks like free delivery and birthday rewards.",
+    ],
+    features: [
+      { icon: 'ri-coins-line', title: 'Points on Every Purchase', text: 'Up to 5 points per $1 spent on the Gold tier.' },
+      { icon: 'ri-flashlight-line', title: 'Instant Redemption', text: 'Use points for discounts the moment you have enough.' },
+      { icon: 'ri-gift-line', title: 'Birthday Rewards', text: 'A free reward voucher every year, automatically.' },
+      { icon: 'ri-vip-crown-2-line', title: 'Tiered Perks', text: 'Silver and Gold unlock early access and free delivery.' },
+    ],
+    info: { heading: 'Membership tiers', rows: [
+      ['Basic', '1 point per $1 — Free'],
+      ['Silver', '2.5 points per $1 — $4.99/mo'],
+      ['Gold Elite', '5 points per $1 — $9.99/mo'],
+      ['Points expiry', '24 months'],
+    ] },
+    faqs: [
+      { q: 'Do points expire?', a: 'Points remain valid for 24 months from the date they are earned.' },
+      { q: 'Can I share my card with family?', a: 'Gold Elite members can add up to 3 linked family cards sharing the same balance.' },
+      { q: 'How do I upgrade my tier?', a: 'Visit the Pricing page or ask at any branch loyalty desk — upgrades apply instantly.' },
+    ],
+  },
+  {
+    id: 'bulk', icon: 'ri-briefcase-4-line', color: 'indigo',
+    title: 'Bulk & Wholesale', text: 'Special pricing for cafes, offices and large families buying in bulk.',
+    hook: 'Bulk pricing that just works, every single order',
+    subtitle: 'Special case-quantity pricing for cafes, offices and large families.',
+    img: 'https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?w=900&q=65&auto=format&fit=crop',
+    overview: [
+      "Running a cafe, office kitchen, or just feeding a big family? Our bulk & wholesale pricing kicks in automatically once your order crosses the case-quantity threshold on eligible items.",
+      "Set up a standing weekly or monthly order and we'll have it ready for collection or delivery on the same schedule every time — no need to reorder manually.",
+    ],
+    features: [
+      { icon: 'ri-price-tag-2-line', title: 'Automatic Case Pricing', text: 'Discounts apply the moment you hit case quantity.' },
+      { icon: 'ri-repeat-line', title: 'Standing Orders', text: 'Set a recurring weekly or monthly order once.' },
+      { icon: 'ri-file-list-3-line', title: 'Itemized Invoicing', text: 'Get a proper VAT invoice for every bulk order.' },
+      { icon: 'ri-truck-line', title: 'Scheduled Delivery', text: 'Same time, same day, every week — automatically.' },
+    ],
+    info: { heading: 'Bulk pricing basics', rows: [
+      ['Minimum for case pricing', '6+ units per item'],
+      ['Typical bulk discount', '10–20% off shelf price'],
+      ['Invoicing', 'Itemized, VAT included'],
+      ['Account setup', 'Free for business accounts'],
+    ] },
+    faqs: [
+      { q: 'Do I need a business account?', a: 'No — anyone can access case pricing, but business accounts also get invoicing and standing orders.' },
+      { q: 'Which items qualify for bulk pricing?', a: 'Most packaged and shelf-stable items; ask your branch for the current bulk-eligible list.' },
+      { q: 'Can I set up a recurring order?', a: 'Yes, speak to any branch team member to set a weekly or monthly standing order.' },
+    ],
+  },
+  {
+    id: 'meal-planning', icon: 'ri-restaurant-line', color: 'lime',
+    title: 'Meal Planning', text: "Weekly recipe bundles built entirely around this week's best offers.",
+    hook: 'Know exactly what to cook, and exactly what it costs',
+    subtitle: "Weekly recipe bundles built entirely around this week's best offers.",
+    img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=65&auto=format&fit=crop',
+    overview: [
+      "Every week, our in-house team builds a set of simple recipes designed entirely around whatever is on offer that week — so you always know exactly what to cook, and exactly what it'll cost.",
+      "Each bundle lists every ingredient with quantities, so you can add the whole recipe to your basket in one tap, whether you're shopping in-store or online.",
+    ],
+    features: [
+      { icon: 'ri-restaurant-line', title: 'Weekly Recipe Bundles', text: '3 new recipes every week, built around current offers.' },
+      { icon: 'ri-shopping-basket-2-line', title: 'One-Tap Basket', text: 'Add every ingredient for a recipe in a single click.' },
+      { icon: 'ri-timer-line', title: '30-Minute Meals', text: 'Every recipe is designed to cook in 30 minutes or less.' },
+      { icon: 'ri-heart-pulse-line', title: 'Nutrition Info Included', text: 'Calories and macros listed for every recipe.' },
+    ],
+    info: { heading: 'What you get each week', rows: [
+      ['New recipes', '3 per week'],
+      ['Average cook time', '30 minutes'],
+      ['Average bundle cost', '$18–$24 for 4 servings'],
+      ['Where to find it', 'Blog + weekly newsletter'],
+    ] },
+    faqs: [
+      { q: 'Is meal planning free?', a: "Yes, it's a free service included for every FreshMart shopper." },
+      { q: 'Can I customize a recipe for allergies?', a: 'Each recipe lists common allergens, and most ingredients have an easy swap suggested.' },
+      { q: 'Where do I find this week\'s recipes?', a: 'Check our Blog or subscribe to the weekly newsletter — new recipes post every Monday.' },
+    ],
+  },
 ];
 
 const FM_DEALS = [
@@ -44,12 +217,12 @@ const FM_TESTIMONIALS = [
 ];
 
 const FM_BLOG_POSTS = [
-  { id: 1, title: '7 Smart Ways to Stretch Your Weekly Grocery Budget', excerpt: 'Simple, practical habits that help you cut your grocery bill without cutting corners on quality.', category: 'Savings Tips', date: 'Jul 12, 2026', readTime: '5 min read', author: 'Sarah Bloom', img: 'budget' },
-  { id: 2, title: 'Seasonal Produce Guide: What to Buy This July', excerpt: 'Get the best flavor and the best price by shopping fruits and vegetables that are in season right now.', category: 'Fresh Produce', date: 'Jul 08, 2026', readTime: '4 min read', author: 'James Okafor', img: 'produce' },
-  { id: 3, title: 'How Loyalty Points Actually Save You Money', excerpt: 'A behind-the-scenes look at how our loyalty tiers stack discounts on top of weekly offers.', category: 'Loyalty Program', date: 'Jul 02, 2026', readTime: '6 min read', author: 'Lena Petrova', img: 'loyalty' },
-  { id: 4, title: '5-Minute Meal Prep Using This Week\'s Deals', excerpt: 'Turn this week\'s discounted essentials into three fast, healthy dinners the whole family will love.', category: 'Recipes', date: 'Jun 27, 2026', readTime: '7 min read', author: 'Sarah Bloom', img: 'meal' },
-  { id: 5, title: 'Inside Our Cold Chain: How We Keep Produce Fresh', excerpt: 'From farm to shelf — the logistics behind FreshMart\'s same-day fresh produce promise.', category: 'Behind the Scenes', date: 'Jun 20, 2026', readTime: '5 min read', author: 'James Okafor', img: 'coldchain' },
-  { id: 6, title: 'Bakery Basics: Reading Best-Before vs Use-By Dates', excerpt: 'Know the difference so you never waste food — or money — again.', category: 'Food Safety', date: 'Jun 14, 2026', readTime: '3 min read', author: 'Lena Petrova', img: 'bakery' },
+  { id: 1, title: '7 Smart Ways to Stretch Your Weekly Grocery Budget', excerpt: 'Simple, practical habits that help you cut your grocery bill without cutting corners on quality.', category: 'Savings Tips', date: 'Jul 12, 2026', readTime: '5 min read', author: 'Sarah Bloom', img: 'https://images.unsplash.com/photo-1543168256-418811576931?w=600&q=65&auto=format&fit=crop' },
+  { id: 2, title: 'Seasonal Produce Guide: What to Buy This July', excerpt: 'Get the best flavor and the best price by shopping fruits and vegetables that are in season right now.', category: 'Fresh Produce', date: 'Jul 08, 2026', readTime: '4 min read', author: 'James Okafor', img: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=600&q=65&auto=format&fit=crop' },
+  { id: 3, title: 'How Loyalty Points Actually Save You Money', excerpt: 'A behind-the-scenes look at how our loyalty tiers stack discounts on top of weekly offers.', category: 'Loyalty Program', date: 'Jul 02, 2026', readTime: '6 min read', author: 'Lena Petrova', img: 'https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=600&q=65&auto=format&fit=crop' },
+  { id: 4, title: '5-Minute Meal Prep Using This Week\'s Deals', excerpt: 'Turn this week\'s discounted essentials into three fast, healthy dinners the whole family will love.', category: 'Recipes', date: 'Jun 27, 2026', readTime: '7 min read', author: 'Sarah Bloom', img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=65&auto=format&fit=crop' },
+  { id: 5, title: 'Inside Our Cold Chain: How We Keep Produce Fresh', excerpt: 'From farm to shelf — the logistics behind FreshMart\'s same-day fresh produce promise.', category: 'Behind the Scenes', date: 'Jun 20, 2026', readTime: '5 min read', author: 'James Okafor', img: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=65&auto=format&fit=crop' },
+  { id: 6, title: 'Bakery Basics: Reading Best-Before vs Use-By Dates', excerpt: 'Know the difference so you never waste food — or money — again.', category: 'Food Safety', date: 'Jun 14, 2026', readTime: '3 min read', author: 'Lena Petrova', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=65&auto=format&fit=crop' },
 ];
 
 const FM_PRICING = [

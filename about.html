@@ -6,6 +6,7 @@
 <title>About FreshMart — Our Story, Mission &amp; Team</title>
 <meta name="description" content="Learn how FreshMart grew from a single neighborhood store into 48+ branches committed to fresh produce, fair prices and rewarding loyalty." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+<meta name="theme-color" content="#107f49" />
 <link rel="canonical" href="about.html" />
 
 <script>
@@ -26,10 +27,17 @@
 <script>
   tailwind.config = {
     darkMode: 'class',
-    theme: { extend: { fontFamily: {
-      sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-      display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-    } } },
+    theme: { extend: {
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+      },
+      colors: {
+        emerald: { 50:'#edfdf5', 100:'#d6fae9', 200:'#adf5d2', 300:'#6eedb0', 400:'#25e488', 500:'#18bf6e', 600:'#107f49', 700:'#0d683c', 800:'#0b5632', 900:'#06321d', 950:'#042012' },
+        amber: { 50:'#fef9f1', 100:'#fbeeda', 200:'#f7d9ab', 300:'#f2c178', 400:'#eca841', 500:'#e99920', 600:'#cc8314', 700:'#a76b11', 800:'#8b590e', 900:'#744a0b', 950:'#412a06' },
+        rose: { 50:'#fdf2f2', 100:'#fadcde', 200:'#f4b8bc', 300:'#ee8c92', 400:'#e8646d', 500:'#d11f2b', 600:'#ad1a24', 700:'#92161e', 800:'#81131b', 900:'#430a0e', 950:'#280608' },
+      },
+    } },
   };
 </script>
 
@@ -44,8 +52,8 @@
 <div id="preloader" aria-hidden="true">
   <div class="fm-basket-loader">
     <svg viewBox="0 0 64 64" fill="none">
-      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#16a34a" stroke-width="3" stroke-linejoin="round"/>
-      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#107f49" stroke-width="3" stroke-linejoin="round"/>
+      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#eca841" stroke-width="3" stroke-linecap="round"/>
     </svg>
   </div>
 </div>
@@ -73,15 +81,16 @@
   <section class="mx-auto max-w-7xl px-6 py-20 md:py-28">
     <div class="grid items-center gap-14 lg:grid-cols-2">
       <div class="relative mx-auto h-80 w-full max-w-md lg:h-96" data-aos="fade-right">
-        <div class="fm-blob absolute inset-4 bg-gradient-to-br from-emerald-500 to-teal-700"></div>
-        <i class="ri-store-2-fill absolute inset-0 m-auto text-8xl text-white/90"></i>
+        <div class="fm-blob fm-tilt fm-img-reveal absolute inset-4 overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-700">
+          <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=700&q=65&auto=format&fit=crop" alt="Bright, fully-stocked FreshMart aisle" width="700" height="500" loading="lazy" decoding="async" class="h-full w-full object-cover mix-blend-luminosity opacity-80 transition-transform duration-700 hover:scale-110" />
+        </div>
         <div class="fm-float absolute -left-4 top-6 rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-4 shadow-2xl">
           <p class="font-display text-xl font-extrabold text-emerald-600">12+ yrs</p>
-          <p class="text-xs text-[hsl(var(--fm-ink))]/55">Serving fresh</p>
+          <p class="text-xs text-[hsl(var(--fm-ink))]/65">Serving fresh</p>
         </div>
         <div class="fm-float-delay absolute -right-4 bottom-6 rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-4 shadow-2xl">
           <p class="font-display text-xl font-extrabold text-emerald-600">48+</p>
-          <p class="text-xs text-[hsl(var(--fm-ink))]/55">Branches</p>
+          <p class="text-xs text-[hsl(var(--fm-ink))]/65">Branches</p>
         </div>
       </div>
       <div>
@@ -114,22 +123,22 @@
       <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7 text-center" data-aos="fade-up">
         <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600"><i class="ri-seedling-line text-2xl"></i></span>
         <h3 class="mt-4 font-display text-base font-bold">Freshness First</h3>
-        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Sourced daily from local farms — never more than 24 hours off the vine.</p>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Sourced daily from local farms — never more than 24 hours off the vine.</p>
       </div>
       <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7 text-center" data-aos="fade-up" data-aos-delay="100">
         <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-600"><i class="ri-price-tag-3-line text-2xl"></i></span>
         <h3 class="mt-4 font-display text-base font-bold">Fair Pricing</h3>
-        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Weekly offers designed to genuinely lower your grocery bill.</p>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Weekly offers designed to genuinely lower your grocery bill.</p>
       </div>
       <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7 text-center" data-aos="fade-up" data-aos-delay="200">
         <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-500/10 text-sky-600"><i class="ri-recycle-line text-2xl"></i></span>
         <h3 class="mt-4 font-display text-base font-bold">Sustainability</h3>
-        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Reduced packaging and food-waste partnerships across every branch.</p>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Reduced packaging and food-waste partnerships across every branch.</p>
       </div>
       <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7 text-center" data-aos="fade-up" data-aos-delay="300">
         <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-500/10 text-rose-600"><i class="ri-heart-3-line text-2xl"></i></span>
         <h3 class="mt-4 font-display text-base font-bold">Community</h3>
-        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Every branch supports local food banks and neighborhood programs.</p>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Every branch supports local food banks and neighborhood programs.</p>
       </div>
     </div>
   </section>
@@ -146,25 +155,25 @@
           <span class="absolute -start-[9px] mt-1.5 h-4 w-4 rounded-full border-4 border-[hsl(var(--fm-surface-alt))] bg-emerald-500"></span>
           <p class="text-xs font-bold uppercase tracking-wide text-emerald-600">2014</p>
           <h3 class="font-display text-lg font-bold">First store opens downtown</h3>
-          <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/60">A single 400 sqm shop with one promise: fresh food, fair prices.</p>
+          <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/65">A single 400 sqm shop with one promise: fresh food, fair prices.</p>
         </li>
         <li class="mb-10" data-aos="fade-up">
           <span class="absolute -start-[9px] mt-1.5 h-4 w-4 rounded-full border-4 border-[hsl(var(--fm-surface-alt))] bg-emerald-500"></span>
           <p class="text-xs font-bold uppercase tracking-wide text-emerald-600">2017</p>
           <h3 class="font-display text-lg font-bold">Loyalty program launches</h3>
-          <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/60">Over 50,000 members join within the first year.</p>
+          <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/65">Over 50,000 members join within the first year.</p>
         </li>
         <li class="mb-10" data-aos="fade-up">
           <span class="absolute -start-[9px] mt-1.5 h-4 w-4 rounded-full border-4 border-[hsl(var(--fm-surface-alt))] bg-emerald-500"></span>
           <p class="text-xs font-bold uppercase tracking-wide text-emerald-600">2021</p>
           <h3 class="font-display text-lg font-bold">Click &amp; collect + delivery rolled out</h3>
-          <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/60">Same-day delivery becomes available at every branch.</p>
+          <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/65">Same-day delivery becomes available at every branch.</p>
         </li>
         <li data-aos="fade-up">
           <span class="absolute -start-[9px] mt-1.5 h-4 w-4 rounded-full border-4 border-[hsl(var(--fm-surface-alt))] bg-emerald-500"></span>
           <p class="text-xs font-bold uppercase tracking-wide text-emerald-600">2026</p>
           <h3 class="font-display text-lg font-bold">48+ branches, 320,000+ loyalty members</h3>
-          <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/60">And we're just getting started.</p>
+          <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/65">And we're just getting started.</p>
         </li>
       </ol>
     </div>
@@ -188,19 +197,27 @@
       </div>
       <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
         <a href="#gallery-produce" data-glightbox data-type="inline" class="fm-glightbox group relative flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white" data-aos="zoom-in">
-          <i class="ri-apple-line text-5xl opacity-80 transition group-hover:scale-110"></i>
+          <img data-src="https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?w=400&q=60&auto=format&fit=crop" alt="Produce aisle" width="400" height="266" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-500 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-emerald-900/10 to-transparent"></div>
+          <i class="ri-apple-line relative text-5xl opacity-90 transition group-hover:scale-110"></i>
           <span class="absolute bottom-3 left-3 text-xs font-bold">Produce Aisle</span>
         </a>
         <a href="#gallery-bakery" data-glightbox data-type="inline" class="fm-glightbox group relative flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500 to-orange-700 text-white" data-aos="zoom-in" data-aos-delay="80">
-          <i class="ri-cake-2-line text-5xl opacity-80 transition group-hover:scale-110"></i>
+          <img data-src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=60&auto=format&fit=crop" alt="Bakery corner" width="400" height="266" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-500 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-gradient-to-t from-amber-900/80 via-amber-900/10 to-transparent"></div>
+          <i class="ri-cake-2-line relative text-5xl opacity-90 transition group-hover:scale-110"></i>
           <span class="absolute bottom-3 left-3 text-xs font-bold">Bakery Corner</span>
         </a>
         <a href="#gallery-dairy" data-glightbox data-type="inline" class="fm-glightbox group relative flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-700 text-white" data-aos="zoom-in" data-aos-delay="160">
-          <i class="ri-drop-line text-5xl opacity-80 transition group-hover:scale-110"></i>
+          <img data-src="https://images.unsplash.com/photo-1506617420156-8e4536971650?w=400&q=60&auto=format&fit=crop" alt="Dairy fridge" width="400" height="266" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-500 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-gradient-to-t from-sky-900/80 via-sky-900/10 to-transparent"></div>
+          <i class="ri-drop-line relative text-5xl opacity-90 transition group-hover:scale-110"></i>
           <span class="absolute bottom-3 left-3 text-xs font-bold">Dairy Fridge</span>
         </a>
         <a href="#gallery-checkout" data-glightbox data-type="inline" class="fm-glightbox group relative flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-rose-500 to-pink-700 text-white" data-aos="zoom-in">
-          <i class="ri-store-2-line text-5xl opacity-80 transition group-hover:scale-110"></i>
+          <img data-src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=400&q=60&auto=format&fit=crop" alt="Checkout lane" width="400" height="266" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-500 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-gradient-to-t from-rose-900/80 via-rose-900/10 to-transparent"></div>
+          <i class="ri-store-2-line relative text-5xl opacity-90 transition group-hover:scale-110"></i>
           <span class="absolute bottom-3 left-3 text-xs font-bold">Checkout Lane</span>
         </a>
         <a href="#gallery-loyalty" data-glightbox data-type="inline" class="fm-glightbox group relative flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500 to-violet-700 text-white" data-aos="zoom-in" data-aos-delay="80">
@@ -208,7 +225,9 @@
           <span class="absolute bottom-3 left-3 text-xs font-bold">Loyalty Desk</span>
         </a>
         <a href="#gallery-team" data-glightbox data-type="inline" class="fm-glightbox group relative flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-lime-500 to-emerald-700 text-white" data-aos="zoom-in" data-aos-delay="160">
-          <i class="ri-team-line text-5xl opacity-80 transition group-hover:scale-110"></i>
+          <img data-src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=60&auto=format&fit=crop" alt="Our team at work" width="400" height="266" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-500 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-emerald-900/10 to-transparent"></div>
+          <i class="ri-team-line relative text-5xl opacity-90 transition group-hover:scale-110"></i>
           <span class="absolute bottom-3 left-3 text-xs font-bold">Our Team</span>
         </a>
       </div>
@@ -216,12 +235,12 @@
 
     <!-- Inline lightbox content -->
     <div class="hidden">
-      <div id="gallery-produce" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-apple-line mb-3 text-4xl text-emerald-600"></i><h3 class="font-display text-lg font-bold">Produce Aisle</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Restocked twice daily with farm-fresh fruit and vegetables.</p></div>
-      <div id="gallery-bakery" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-cake-2-line mb-3 text-4xl text-amber-600"></i><h3 class="font-display text-lg font-bold">Bakery Corner</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Fresh bread baked in-house every morning from 5 AM.</p></div>
-      <div id="gallery-dairy" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-drop-line mb-3 text-4xl text-sky-600"></i><h3 class="font-display text-lg font-bold">Dairy Fridge</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Temperature-controlled aisles keeping dairy perfectly chilled.</p></div>
-      <div id="gallery-checkout" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-store-2-line mb-3 text-4xl text-rose-600"></i><h3 class="font-display text-lg font-bold">Checkout Lane</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Fast self-checkout plus priority lanes for loyalty members.</p></div>
-      <div id="gallery-loyalty" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-vip-crown-2-line mb-3 text-4xl text-purple-600"></i><h3 class="font-display text-lg font-bold">Loyalty Desk</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Sign up, ask questions or redeem points face to face.</p></div>
-      <div id="gallery-team" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-team-line mb-3 text-4xl text-emerald-600"></i><h3 class="font-display text-lg font-bold">Our Team</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Friendly, trained staff ready to help you find the best deals.</p></div>
+      <div id="gallery-produce" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-apple-line mb-3 text-4xl text-emerald-600"></i><h3 class="font-display text-lg font-bold">Produce Aisle</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Restocked twice daily with farm-fresh fruit and vegetables.</p></div>
+      <div id="gallery-bakery" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-cake-2-line mb-3 text-4xl text-amber-600"></i><h3 class="font-display text-lg font-bold">Bakery Corner</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Fresh bread baked in-house every morning from 5 AM.</p></div>
+      <div id="gallery-dairy" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-drop-line mb-3 text-4xl text-sky-600"></i><h3 class="font-display text-lg font-bold">Dairy Fridge</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Temperature-controlled aisles keeping dairy perfectly chilled.</p></div>
+      <div id="gallery-checkout" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-store-2-line mb-3 text-4xl text-rose-600"></i><h3 class="font-display text-lg font-bold">Checkout Lane</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Fast self-checkout plus priority lanes for loyalty members.</p></div>
+      <div id="gallery-loyalty" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-vip-crown-2-line mb-3 text-4xl text-purple-600"></i><h3 class="font-display text-lg font-bold">Loyalty Desk</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Sign up, ask questions or redeem points face to face.</p></div>
+      <div id="gallery-team" class="max-w-md rounded-2xl bg-[hsl(var(--fm-surface))] p-8 text-center"><i class="ri-team-line mb-3 text-4xl text-emerald-600"></i><h3 class="font-display text-lg font-bold">Our Team</h3><p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Friendly, trained staff ready to help you find the best deals.</p></div>
     </div>
   </section>
 
@@ -267,16 +286,18 @@
     });
 
     const team = [
-      { name: 'Sarah Bloom', role: 'Chief Executive Officer', bg: 'from-emerald-400 to-teal-500' },
-      { name: 'James Okafor', role: 'Head of Fresh Produce', bg: 'from-amber-400 to-orange-500' },
-      { name: 'Lena Petrova', role: 'Loyalty Program Director', bg: 'from-sky-400 to-indigo-500' },
-      { name: 'Marco Rossi', role: 'Regional Operations Lead', bg: 'from-rose-400 to-pink-500' },
+      { name: 'Sarah Bloom', role: 'Chief Executive Officer', photo: 'https://images.unsplash.com/photo-1524593689594-aae2f26b75ab?w=300&q=65&auto=format&fit=crop&facepad=2' },
+      { name: 'James Okafor', role: 'Head of Fresh Produce', photo: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=300&q=65&auto=format&fit=crop&facepad=2' },
+      { name: 'Lena Petrova', role: 'Loyalty Program Director', photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=65&auto=format&fit=crop&facepad=2' },
+      { name: 'Marco Rossi', role: 'Regional Operations Lead', photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=65&auto=format&fit=crop&facepad=2' },
     ];
     FmRender.mount('team-grid', team, (m) => `
-      <div class="fm-card rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-6 text-center" data-aos="fade-up">
-        <span class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br ${m.bg} font-display text-2xl font-bold text-white">${m.name.split(' ').map(n=>n[0]).join('')}</span>
+      <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-6 text-center" data-aos="fade-up">
+        <span class="mx-auto block h-20 w-20 overflow-hidden rounded-full ring-4 ring-emerald-500/10">
+          <img data-src="${m.photo}" alt="${m.name}" width="160" height="160" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 hover:scale-110" />
+        </span>
         <h3 class="mt-4 font-display text-base font-bold">${m.name}</h3>
-        <p class="text-xs text-[hsl(var(--fm-ink))]/55">${m.role}</p>
+        <p class="text-xs text-[hsl(var(--fm-ink))]/65">${m.role}</p>
         <div class="mt-4 flex justify-center gap-3 text-sm">
           <a href="#" aria-label="LinkedIn" class="flex h-8 w-8 items-center justify-center rounded-full border border-[hsl(var(--fm-border))] hover:border-emerald-500 hover:text-emerald-600"><i class="ri-linkedin-fill"></i></a>
           <a href="#" aria-label="Twitter" class="flex h-8 w-8 items-center justify-center rounded-full border border-[hsl(var(--fm-border))] hover:border-emerald-500 hover:text-emerald-600"><i class="ri-twitter-x-line"></i></a>

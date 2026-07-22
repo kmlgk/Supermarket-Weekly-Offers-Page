@@ -6,6 +6,7 @@
 <title>Home Delivery Service — FreshMart</title>
 <meta name="description" content="Same-day home delivery from FreshMart — free over $50, available at every branch nationwide." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+<meta name="theme-color" content="#107f49" />
 <link rel="canonical" href="service-details.html" />
 
 <script>
@@ -26,10 +27,17 @@
 <script>
   tailwind.config = {
     darkMode: 'class',
-    theme: { extend: { fontFamily: {
-      sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-      display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-    } } },
+    theme: { extend: {
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+      },
+      colors: {
+        emerald: { 50:'#edfdf5', 100:'#d6fae9', 200:'#adf5d2', 300:'#6eedb0', 400:'#25e488', 500:'#18bf6e', 600:'#107f49', 700:'#0d683c', 800:'#0b5632', 900:'#06321d', 950:'#042012' },
+        amber: { 50:'#fef9f1', 100:'#fbeeda', 200:'#f7d9ab', 300:'#f2c178', 400:'#eca841', 500:'#e99920', 600:'#cc8314', 700:'#a76b11', 800:'#8b590e', 900:'#744a0b', 950:'#412a06' },
+        rose: { 50:'#fdf2f2', 100:'#fadcde', 200:'#f4b8bc', 300:'#ee8c92', 400:'#e8646d', 500:'#d11f2b', 600:'#ad1a24', 700:'#92161e', 800:'#81131b', 900:'#430a0e', 950:'#280608' },
+      },
+    } },
   };
 </script>
 
@@ -44,8 +52,8 @@
 <div id="preloader" aria-hidden="true">
   <div class="fm-basket-loader">
     <svg viewBox="0 0 64 64" fill="none">
-      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#16a34a" stroke-width="3" stroke-linejoin="round"/>
-      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#107f49" stroke-width="3" stroke-linejoin="round"/>
+      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#eca841" stroke-width="3" stroke-linecap="round"/>
     </svg>
   </div>
 </div>
@@ -67,51 +75,23 @@
 <header id="site-header" class="fixed inset-x-0 top-0 z-50 border-b border-transparent"></header>
 
 <main id="main-content">
-  <div id="breadcrumb" data-title="Home Delivery Service" data-subtitle="Same-day delivery from your nearest FreshMart branch, free on orders over $50." data-crumbs='[{"label":"Services","href":"services.html"},{"label":"Home Delivery","href":"service-details.html"}]'></div>
+  <div id="breadcrumb"></div>
 
   <section class="mx-auto max-w-7xl px-6 py-20 md:py-28">
     <div class="grid gap-12 lg:grid-cols-3">
       <!-- Main content -->
       <div class="lg:col-span-2">
-        <div class="relative mb-10 flex h-72 items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white" data-aos="fade-up">
-          <i class="ri-truck-line text-8xl opacity-80"></i>
-        </div>
+        <div id="service-hero" class="fm-photo-tile fm-img-reveal group relative mb-10 flex h-72 items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white"></div>
 
         <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">Service Overview</p>
-        <h1 data-split-text class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">Groceries delivered fresh, right to your door</h1>
-        <p class="mt-5 text-[hsl(var(--fm-ink))]/65">FreshMart's home delivery brings this week's offers straight to your kitchen. Choose a delivery slot that suits you, and our pickers hand-select the freshest produce and best-priced essentials from your nearest branch.</p>
-        <p class="mt-4 text-[hsl(var(--fm-ink))]/65">Delivery is completely free on orders over $50, with flat-rate delivery on smaller baskets. Loyalty members enjoy priority slots and reduced delivery fees on every tier.</p>
+        <h1 id="service-h1" data-split-text class="font-display text-3xl font-extrabold tracking-tight md:text-4xl"></h1>
+        <div id="service-overview" class="mt-5 space-y-4 text-[hsl(var(--fm-ink))]/65"></div>
 
-        <div class="mt-10 grid gap-5 sm:grid-cols-2">
-          <div class="rounded-2xl border border-[hsl(var(--fm-border))] p-6" data-aos="fade-up">
-            <i class="ri-time-line text-2xl text-emerald-600"></i>
-            <h3 class="mt-3 font-display font-bold">Same-Day Slots</h3>
-            <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/60">Order before 2 PM for delivery the same evening.</p>
-          </div>
-          <div class="rounded-2xl border border-[hsl(var(--fm-border))] p-6" data-aos="fade-up" data-aos-delay="100">
-            <i class="ri-shield-check-line text-2xl text-emerald-600"></i>
-            <h3 class="mt-3 font-display font-bold">Freshness Guarantee</h3>
-            <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/60">Not happy with an item? We'll refund or replace it free.</p>
-          </div>
-          <div class="rounded-2xl border border-[hsl(var(--fm-border))] p-6" data-aos="fade-up">
-            <i class="ri-map-pin-time-line text-2xl text-emerald-600"></i>
-            <h3 class="mt-3 font-display font-bold">Live Order Tracking</h3>
-            <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/60">Track your basket from picking to your doorstep in real time.</p>
-          </div>
-          <div class="rounded-2xl border border-[hsl(var(--fm-border))] p-6" data-aos="fade-up" data-aos-delay="100">
-            <i class="ri-vip-crown-2-line text-2xl text-emerald-600"></i>
-            <h3 class="mt-3 font-display font-bold">Loyalty Priority</h3>
-            <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/60">Gold members get first access to limited delivery slots.</p>
-          </div>
-        </div>
+        <div id="service-features" class="mt-10 grid gap-5 sm:grid-cols-2"></div>
 
         <div class="mt-10 rounded-2xl bg-[hsl(var(--fm-surface-alt))] p-7" data-aos="fade-up">
-          <h3 class="font-display text-lg font-bold">Delivery pricing</h3>
-          <ul class="mt-4 space-y-3 text-sm">
-            <li class="flex items-center justify-between border-b border-[hsl(var(--fm-border))] pb-3"><span>Orders over $50</span><span class="font-bold text-emerald-600">Free</span></li>
-            <li class="flex items-center justify-between border-b border-[hsl(var(--fm-border))] pb-3"><span>Orders $25 – $50</span><span class="font-bold">$3.99</span></li>
-            <li class="flex items-center justify-between"><span>Orders under $25</span><span class="font-bold">$5.99</span></li>
-          </ul>
+          <h3 id="service-info-heading" class="font-display text-lg font-bold"></h3>
+          <ul id="service-info-rows" class="mt-4 space-y-3 text-sm"></ul>
         </div>
 
         <div class="mt-10" id="service-faq">
@@ -124,13 +104,7 @@
       <aside class="space-y-6">
         <div class="rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-6">
           <h3 class="font-display text-base font-bold">All Services</h3>
-          <ul class="mt-4 space-y-1 text-sm">
-            <li><a href="service-details.html" class="flex items-center justify-between rounded-lg bg-emerald-600/10 px-3 py-2.5 font-semibold text-emerald-600"><span><i class="ri-truck-line mr-2"></i>Home Delivery</span><i class="ri-arrow-right-s-line"></i></a></li>
-            <li><a href="services.html" class="flex items-center justify-between rounded-lg px-3 py-2.5 hover:bg-[hsl(var(--fm-surface-alt))]"><span><i class="ri-store-2-line mr-2"></i>Click &amp; Collect</span><i class="ri-arrow-right-s-line"></i></a></li>
-            <li><a href="services.html" class="flex items-center justify-between rounded-lg px-3 py-2.5 hover:bg-[hsl(var(--fm-surface-alt))]"><span><i class="ri-vip-crown-2-line mr-2"></i>Loyalty Rewards</span><i class="ri-arrow-right-s-line"></i></a></li>
-            <li><a href="services.html" class="flex items-center justify-between rounded-lg px-3 py-2.5 hover:bg-[hsl(var(--fm-surface-alt))]"><span><i class="ri-briefcase-4-line mr-2"></i>Bulk &amp; Wholesale</span><i class="ri-arrow-right-s-line"></i></a></li>
-            <li><a href="services.html" class="flex items-center justify-between rounded-lg px-3 py-2.5 hover:bg-[hsl(var(--fm-surface-alt))]"><span><i class="ri-restaurant-line mr-2"></i>Meal Planning</span><i class="ri-arrow-right-s-line"></i></a></li>
-          </ul>
+          <ul id="service-list" class="mt-4 space-y-1 text-sm"></ul>
         </div>
 
         <div class="fm-loyalty-card rounded-2xl p-6 text-white">
@@ -142,7 +116,7 @@
 
         <div class="rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-6">
           <h3 class="font-display text-base font-bold">Download brochure</h3>
-          <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Full delivery zones, timing and pricing in one PDF.</p>
+          <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Full delivery zones, timing and pricing in one PDF.</p>
           <a href="#" class="mt-4 flex items-center justify-center gap-2 rounded-full border border-[hsl(var(--fm-border))] py-3 text-sm font-bold hover:border-emerald-500 hover:text-emerald-600"><i class="ri-file-download-line"></i> Download PDF</a>
         </div>
       </aside>
@@ -179,18 +153,66 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const faqs = [
-      { q: 'What areas does delivery cover?', a: 'Every FreshMart branch delivers within a 10 km radius. Enter your postcode at checkout to confirm coverage.' },
-      { q: 'Can I schedule a delivery for later in the week?', a: 'Yes, you can book any available slot up to 7 days in advance.' },
-      { q: 'What if an item is out of stock?', a: 'Our pickers will contact you to suggest a substitute or refund the item automatically.' },
-    ];
-    document.getElementById('service-faq-list').innerHTML = faqs.map((f,i) => `
-      <div class="fm-accordion-item overflow-hidden rounded-2xl border border-[hsl(var(--fm-border))] ${i===0?'fm-open':''}">
+    // Which service to show comes from ?service=<id> (services.html
+    // links to service-details.html?service=<id> per card). Falls back
+    // to the first service so the page still works if opened directly
+    // with no query string.
+    const requestedId = new URLSearchParams(window.location.search).get('service');
+    const service = FM_SERVICES.find(s => s.id === requestedId) || FM_SERVICES[0];
+
+    document.title = `${service.title} Service — FreshMart`;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', service.subtitle);
+
+    // fmBreadcrumbHTML is the same global helper components.js uses
+    // internally — called directly here (instead of via the usual
+    // data-title/data-subtitle/data-crumbs attributes on #breadcrumb)
+    // because components.js's own DOMContentLoaded listener runs
+    // *before* this one and would already have rendered the breadcrumb
+    // from empty attributes by the time we knew which service to show.
+    document.getElementById('breadcrumb').innerHTML = fmBreadcrumbHTML(
+      `${service.title} Service`,
+      [
+        { label: 'Home', href: 'index.html' },
+        { label: 'Services', href: 'services.html' },
+        { label: service.title, href: `service-details.html?service=${service.id}` },
+      ],
+      service.subtitle
+    );
+
+    document.getElementById('service-hero').innerHTML = `
+      <img src="${service.img}" alt="${service.title}" width="900" height="450" loading="eager" decoding="async" class="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105" />
+      <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/85 via-emerald-800/20 to-transparent"></div>
+      <i class="${service.icon} relative text-8xl opacity-90"></i>
+    `;
+
+    document.getElementById('service-h1').textContent = service.hook;
+    document.getElementById('service-overview').innerHTML = service.overview.map(p => `<p>${p}</p>`).join('');
+
+    document.getElementById('service-features').innerHTML = service.features.map((f, i) => `
+      <div class="rounded-2xl border border-[hsl(var(--fm-border))] p-6" data-aos="fade-up" ${i % 2 === 1 ? 'data-aos-delay="100"' : ''}>
+        <i class="${f.icon} text-2xl text-emerald-600"></i>
+        <h3 class="mt-3 font-display font-bold">${f.title}</h3>
+        <p class="mt-1 text-sm text-[hsl(var(--fm-ink))]/65">${f.text}</p>
+      </div>`).join('');
+
+    document.getElementById('service-info-heading').textContent = service.info.heading;
+    document.getElementById('service-info-rows').innerHTML = service.info.rows.map(([label, value], i) => `
+      <li class="flex items-center justify-between ${i < service.info.rows.length - 1 ? 'border-b border-[hsl(var(--fm-border))] pb-3' : ''}">
+        <span>${label}</span><span class="font-bold ${i === 0 ? 'text-emerald-600' : ''}">${value}</span>
+      </li>`).join('');
+
+    document.getElementById('service-faq-list').innerHTML = service.faqs.map((f, i) => `
+      <div class="fm-accordion-item overflow-hidden rounded-2xl border border-[hsl(var(--fm-border))] ${i === 0 ? 'fm-open' : ''}">
         <button class="fm-accordion-toggle flex w-full items-center justify-between p-4 text-left text-sm font-semibold">
           ${f.q} <i class="ri-arrow-down-s-line fm-accordion-icon text-lg text-emerald-600"></i>
         </button>
-        <div class="fm-accordion-body"><p class="px-4 pb-4 text-sm text-[hsl(var(--fm-ink))]/60">${f.a}</p></div>
+        <div class="fm-accordion-body"><p class="px-4 pb-4 text-sm text-[hsl(var(--fm-ink))]/65">${f.a}</p></div>
       </div>`).join('');
+
+    document.getElementById('service-list').innerHTML = FM_SERVICES.map(s => `
+      <li><a href="service-details.html?service=${s.id}" class="flex items-center justify-between rounded-lg px-3 py-2.5 font-semibold ${s.id === service.id ? 'bg-emerald-600/10 text-emerald-600' : 'hover:bg-[hsl(var(--fm-surface-alt))]'}">
+        <span><i class="${s.icon} mr-2"></i>${s.title}</span><i class="ri-arrow-right-s-line"></i>
+      </a></li>`).join('');
   });
 </script>
 <script src="assets/js/main.js"></script>

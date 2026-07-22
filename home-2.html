@@ -6,6 +6,7 @@
 <title>FreshMart — Home 2 | Weekly Catalog &amp; Grocery Deals</title>
 <meta name="description" content="Browse FreshMart's weekly catalog — rotating deal spotlights, category tabs, loyalty perks and store locator, all in one place." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+<meta name="theme-color" content="#107f49" />
 <link rel="canonical" href="home-2.html" />
 
 <script>
@@ -26,10 +27,17 @@
 <script>
   tailwind.config = {
     darkMode: 'class',
-    theme: { extend: { fontFamily: {
-      sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-      display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-    } } },
+    theme: { extend: {
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+      },
+      colors: {
+        emerald: { 50:'#edfdf5', 100:'#d6fae9', 200:'#adf5d2', 300:'#6eedb0', 400:'#25e488', 500:'#18bf6e', 600:'#107f49', 700:'#0d683c', 800:'#0b5632', 900:'#06321d', 950:'#042012' },
+        amber: { 50:'#fef9f1', 100:'#fbeeda', 200:'#f7d9ab', 300:'#f2c178', 400:'#eca841', 500:'#e99920', 600:'#cc8314', 700:'#a76b11', 800:'#8b590e', 900:'#744a0b', 950:'#412a06' },
+        rose: { 50:'#fdf2f2', 100:'#fadcde', 200:'#f4b8bc', 300:'#ee8c92', 400:'#e8646d', 500:'#d11f2b', 600:'#ad1a24', 700:'#92161e', 800:'#81131b', 900:'#430a0e', 950:'#280608' },
+      },
+    } },
   };
 </script>
 
@@ -44,8 +52,8 @@
 <div id="preloader" aria-hidden="true">
   <div class="fm-basket-loader">
     <svg viewBox="0 0 64 64" fill="none">
-      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#16a34a" stroke-width="3" stroke-linejoin="round"/>
-      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#107f49" stroke-width="3" stroke-linejoin="round"/>
+      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#eca841" stroke-width="3" stroke-linecap="round"/>
     </svg>
   </div>
 </div>
@@ -82,8 +90,8 @@
                 <p class="mt-4 max-w-md text-white/80">Hand-picked fruit and vegetables delivered daily to every branch.</p>
                 <a href="#weekly-catalog" class="fm-btn fm-magnetic relative mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-7 py-3.5 text-sm font-bold text-emerald-950">Shop Produce <i class="ri-arrow-right-line"></i></a>
               </div>
-              <div class="relative mx-auto hidden h-72 w-72 items-center justify-center rounded-full bg-white/10 backdrop-blur-md md:flex">
-                <i class="ri-apple-line fm-float text-[9rem] text-amber-300"></i>
+              <div class="relative mx-auto hidden h-72 w-72 items-center justify-center rounded-full bg-white/10 p-3 backdrop-blur-md md:flex">
+                <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=500&q=65&auto=format&fit=crop" alt="Fresh fruit and vegetables" width="500" height="500" loading="eager" decoding="async" class="fm-kenburns h-full w-full rounded-full object-cover" />
               </div>
             </div>
           </div>
@@ -98,8 +106,8 @@
                 <p class="mt-4 max-w-md text-white/80">Milk, cheese and yoghurt from trusted local farms, every week.</p>
                 <a href="#weekly-catalog" class="fm-btn fm-magnetic relative mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-7 py-3.5 text-sm font-bold text-emerald-950">Shop Dairy <i class="ri-arrow-right-line"></i></a>
               </div>
-              <div class="relative mx-auto hidden h-72 w-72 items-center justify-center rounded-full bg-white/10 backdrop-blur-md md:flex">
-                <i class="ri-drop-line fm-float text-[9rem] text-sky-300"></i>
+              <div class="relative mx-auto hidden h-72 w-72 items-center justify-center rounded-full bg-white/10 p-3 backdrop-blur-md md:flex">
+                <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&q=65&auto=format&fit=crop" alt="Milk being poured into a glass" width="500" height="500" loading="lazy" decoding="async" class="fm-kenburns h-full w-full rounded-full object-cover" />
               </div>
             </div>
           </div>
@@ -114,8 +122,8 @@
                 <p class="mt-4 max-w-md text-white/80">Butcher-cut quality, portioned fresh for your family every week.</p>
                 <a href="#weekly-catalog" class="fm-btn fm-magnetic relative mt-8 inline-flex items-center gap-2 rounded-full bg-amber-400 px-7 py-3.5 text-sm font-bold text-emerald-950">Shop Meat <i class="ri-arrow-right-line"></i></a>
               </div>
-              <div class="relative mx-auto hidden h-72 w-72 items-center justify-center rounded-full bg-white/10 backdrop-blur-md md:flex">
-                <i class="ri-restaurant-2-line fm-float text-[9rem] text-rose-300"></i>
+              <div class="relative mx-auto hidden h-72 w-72 items-center justify-center rounded-full bg-white/10 p-3 backdrop-blur-md md:flex">
+                <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=500&q=65&auto=format&fit=crop" alt="Premium cuts of meat" width="500" height="500" loading="lazy" decoding="async" class="fm-kenburns h-full w-full rounded-full object-cover" />
               </div>
             </div>
           </div>
@@ -231,7 +239,7 @@
         <div class="text-center">
           <span class="mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600"><i class="${icons[i]} text-xl"></i></span>
           <p class="font-display text-2xl font-extrabold text-emerald-600"><span data-countup="${s.value}" data-suffix="${s.suffix}">0</span></p>
-          <p class="text-xs text-[hsl(var(--fm-ink))]/55">${s.label}</p>
+          <p class="text-xs text-[hsl(var(--fm-ink))]/65">${s.label}</p>
         </div>`);
     });
 

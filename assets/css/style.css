@@ -4,10 +4,12 @@
    ========================================================= */
 
 :root {
-  --fm-primary: 142 71% 35%;        /* emerald green */
-  --fm-primary-dark: 142 71% 28%;
-  --fm-accent: 24 95% 53%;          /* deal orange */
-  --fm-accent-2: 45 93% 51%;        /* discount yellow */
+  --fm-primary: 151 78% 28%;        /* deep fresh green (brand) — darkened from L34% for WCAG AA text/button contrast */
+  --fm-primary-dark: 151 78% 22%;
+  --fm-accent: 356 74% 47%;         /* ripe tomato red (sale/deal) — darkened from L56% for WCAG AA */
+  --fm-accent-2: 36 82% 59%;        /* golden amber (bakery/warmth) — light, pairs with dark text (badges) */
+  --fm-accent-2-deep: 36 82% 30%;   /* same hue, dark enough for WHITE text (button hover gradient) — the
+                                        light --fm-accent-2 only reaches ~2:1 with white, failing WCAG */
   --fm-ink: 222 22% 12%;
   --fm-surface: 0 0% 100%;
   --fm-surface-alt: 150 30% 97%;
@@ -163,7 +165,10 @@ h1, h2, h3, h4, h5, h6, .font-display {
 .fm-btn { position: relative; overflow: hidden; isolation: isolate; }
 .fm-btn::before {
   content: ''; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(120deg, hsl(var(--fm-accent)), hsl(var(--fm-accent-2)));
+  /* --fm-accent-2-deep, not --fm-accent-2: fm-btn always carries white
+     text, and the light --fm-accent-2 amber only reaches ~2:1 contrast
+     with white (fails WCAG badly) right where the gradient ends. */
+  background: linear-gradient(120deg, hsl(var(--fm-accent)), hsl(var(--fm-accent-2-deep)));
   transform: scaleX(0); transform-origin: left; transition: transform .45s ease;
 }
 .fm-btn:hover::before { transform: scaleX(1); }
@@ -173,7 +178,11 @@ h1, h2, h3, h4, h5, h6, .font-display {
    Gradient text / animated gradient bg
    ========================= */
 .fm-gradient-text {
-  background: linear-gradient(100deg, hsl(var(--fm-primary)), hsl(var(--fm-accent)) 60%, hsl(var(--fm-accent-2)));
+  /* --fm-accent-2-deep at the amber end, not the light --fm-accent-2:
+     this is real heading text, and the light amber only clears ~2:1
+     against a white/dark backdrop (this text is large/bold enough
+     that the applicable WCAG minimum is 3:1, which it still failed). */
+  background: linear-gradient(100deg, hsl(var(--fm-primary)), hsl(var(--fm-accent)) 60%, hsl(var(--fm-accent-2-deep)));
   -webkit-background-clip: text; background-clip: text; color: transparent;
   background-size: 200% auto; animation: fm-gradient-move 6s linear infinite;
 }
@@ -224,11 +233,11 @@ h1, h2, h3, h4, h5, h6, .font-display {
 }
 
 /* Store status dot */
-.fm-status-dot { box-shadow: 0 0 0 0 rgb(34 197 94 / 0.7); animation: fm-pulse 2s infinite; }
+.fm-status-dot { box-shadow: 0 0 0 0 rgb(16 127 73 / 0.7); animation: fm-pulse 2s infinite; }
 @keyframes fm-pulse {
-  0% { box-shadow: 0 0 0 0 rgb(34 197 94 / .6); }
-  70% { box-shadow: 0 0 0 10px rgb(34 197 94 / 0); }
-  100% { box-shadow: 0 0 0 0 rgb(34 197 94 / 0); }
+  0% { box-shadow: 0 0 0 0 rgb(16 127 73 / .6); }
+  70% { box-shadow: 0 0 0 10px rgb(16 127 73 / 0); }
+  100% { box-shadow: 0 0 0 0 rgb(16 127 73 / 0); }
 }
 
 /* Isotope filter — width is set per-context via Tailwind utility
@@ -318,8 +327,109 @@ img.fm-loaded { filter: blur(0); }
               radial-gradient(circle at 70% 70%, hsl(var(--fm-primary) / .35), transparent 60%);
 }
 
+/* =========================
+   Hero 3D showcase
+   ========================= */
+
+/* Background photo texture wash. Earlier this used mix-blend-mode:
+   luminosity, which let the photo's own hues (pink cabbage, red
+   tomato) bleed through unpredictably and clash with the brand
+   palette instead of reading as "on theme". Desaturating the photo
+   itself and layering a proper brand-color gradient wash (.fm-hero-wash)
+   on top gives a result that's always tinted toward the actual brand
+   colors, never the photo's original colors. */
+.fm-hero-bg-photo {
+  opacity: .5;
+  filter: grayscale(70%) saturate(60%) brightness(1.05) contrast(1.02);
+}
+html.dark .fm-hero-bg-photo { opacity: .28; filter: grayscale(85%) saturate(50%) brightness(.6) contrast(1.05); }
+
+.fm-hero-wash {
+  background:
+    linear-gradient(115deg, hsl(var(--fm-surface) / .97) 0%, hsl(var(--fm-surface) / .82) 32%, hsl(var(--fm-primary) / .22) 68%, hsl(var(--fm-surface) / .93) 100%);
+}
+html.dark .fm-hero-wash {
+  background:
+    linear-gradient(115deg, hsl(var(--fm-surface) / .96) 0%, hsl(var(--fm-surface) / .78) 32%, hsl(var(--fm-primary) / .3) 68%, hsl(var(--fm-surface) / .92) 100%);
+}
+
+/* Perspective stage: children with a 3D transform need a perspective
+   ancestor, otherwise rotateX/rotateY render flat. */
+.fm-hero-stage { perspective: 1400px; }
+
+/* The main circular showcase image — mouse-driven rotateX/rotateY is
+   applied inline via GSAP quickTo in main.js; this just sets up the
+   3D context and a soft resting transform so it never looks static. */
+.fm-hero-tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform .15s ease-out;
+}
+
+/* Slow-spinning dashed ring behind the showcase image, for that
+   "premium product spotlight" feel. */
+.fm-hero-ring {
+  animation: fm-hero-spin 24s linear infinite;
+}
+.fm-hero-ring-reverse {
+  animation: fm-hero-spin 30s linear infinite reverse;
+}
+@keyframes fm-hero-spin { to { transform: rotate(360deg); } }
+
+/* Soft color glow sitting behind the showcase image */
+.fm-hero-glow {
+  background: radial-gradient(circle, hsl(var(--fm-accent-2) / .55), hsl(var(--fm-primary) / .35) 55%, transparent 75%);
+  filter: blur(40px);
+  animation: fm-glow-pulse 6s ease-in-out infinite;
+}
+@keyframes fm-glow-pulse {
+  0%, 100% { transform: scale(1); opacity: .8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+/* Floating drifting particles scattered across the hero */
+.fm-particle {
+  position: absolute;
+  border-radius: 999px;
+  background: hsl(var(--fm-accent-2) / .5);
+  animation: fm-particle-drift 9s ease-in-out infinite;
+}
+.fm-particle:nth-child(2n) { background: hsl(var(--fm-primary) / .45); animation-duration: 11s; }
+.fm-particle:nth-child(3n) { background: hsl(var(--fm-accent) / .4); animation-duration: 7.5s; }
+@keyframes fm-particle-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(14px, -22px); }
+}
+
+/* Eyebrow pill glow pulse */
+.fm-glow-pulse-ring { animation: fm-badge-glow 2.4s ease-in-out infinite; }
+@keyframes fm-badge-glow {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--fm-accent) / .35); }
+  50% { box-shadow: 0 0 0 8px hsl(var(--fm-accent) / 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fm-hero-ring, .fm-hero-ring-reverse, .fm-hero-glow, .fm-particle, .fm-glow-pulse-ring, .fm-kenburns {
+    animation: none !important;
+  }
+}
+
 /* Section eyebrow underline */
 .fm-eyebrow { position: relative; }
+
+/* Slow cinematic Ken Burns zoom for hero/featured photography */
+.fm-kenburns { animation: fm-kenburns 14s ease-in-out infinite alternate; }
+@keyframes fm-kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+
+/* Image reveal wipe — pairs with a GSAP ScrollTrigger clip-path tween */
+.fm-img-reveal { clip-path: inset(0 0 0 100%); }
+
+/* Photo tile hover: subtle darken + zoom handled by utility classes;
+   this just smooths the shared timing curve for image + overlay pairs. */
+.fm-photo-tile img, .fm-photo-tile .fm-photo-overlay { transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .4s ease; }
 
 /* Print */
 @media print { #site-header, #site-footer, #back-to-top, #mobile-menu-panel { display: none !important; } }

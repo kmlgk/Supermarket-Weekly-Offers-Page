@@ -11,6 +11,7 @@
 <meta property="og:description" content="Fresh weekly deals across every aisle, loyalty rewards and 48+ branches nationwide." />
 <meta property="og:type" content="website" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+<meta name="theme-color" content="#107f49" />
 <link rel="canonical" href="index.html" />
 
 <!-- Theme init (prevents flash of incorrect theme/direction) -->
@@ -42,6 +43,11 @@
           sans: ['Inter', 'ui-sans-serif', 'system-ui'],
           display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
         },
+      colors: {
+          emerald: { 50:'#edfdf5', 100:'#d6fae9', 200:'#adf5d2', 300:'#6eedb0', 400:'#25e488', 500:'#18bf6e', 600:'#107f49', 700:'#0d683c', 800:'#0b5632', 900:'#06321d', 950:'#042012' },
+          amber: { 50:'#fef9f1', 100:'#fbeeda', 200:'#f7d9ab', 300:'#f2c178', 400:'#eca841', 500:'#e99920', 600:'#cc8314', 700:'#a76b11', 800:'#8b590e', 900:'#744a0b', 950:'#412a06' },
+          rose: { 50:'#fdf2f2', 100:'#fadcde', 200:'#f4b8bc', 300:'#ee8c92', 400:'#e8646d', 500:'#d11f2b', 600:'#ad1a24', 700:'#92161e', 800:'#81131b', 900:'#430a0e', 950:'#280608' },
+        },
       },
     },
   };
@@ -62,8 +68,8 @@
 <div id="preloader" aria-hidden="true">
   <div class="fm-basket-loader">
     <svg viewBox="0 0 64 64" fill="none">
-      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#16a34a" stroke-width="3" stroke-linejoin="round"/>
-      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#107f49" stroke-width="3" stroke-linejoin="round"/>
+      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#eca841" stroke-width="3" stroke-linecap="round"/>
     </svg>
   </div>
 </div>
@@ -89,13 +95,19 @@
 <main id="main-content">
 
   <!-- ============ HERO ============ -->
-  <section class="fm-radial-glow relative overflow-hidden pb-20 pt-40 md:pb-28 md:pt-48" aria-label="Hero">
+  <section class="fm-radial-glow relative isolate overflow-hidden pb-20 pt-40 md:pb-28 md:pt-48" aria-label="Hero">
+    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=1600&q=55&auto=format&fit=crop" alt="" aria-hidden="true" width="1600" height="1000" loading="eager" decoding="async" class="fm-hero-bg-photo pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover" />
+    <div class="fm-hero-wash pointer-events-none absolute inset-0 -z-10" aria-hidden="true"></div>
     <div class="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-emerald-500/10 fm-blob"></div>
     <div class="pointer-events-none absolute -right-16 bottom-0 h-96 w-96 rounded-full bg-amber-400/10 fm-blob"></div>
+    <span class="fm-particle pointer-events-none hidden h-2 w-2 lg:block" style="top:20%; left:40%;" aria-hidden="true"></span>
+    <span class="fm-particle pointer-events-none hidden h-2.5 w-2.5 lg:block" style="top:62%; left:47%;" aria-hidden="true"></span>
+    <span class="fm-particle pointer-events-none hidden h-1.5 w-1.5 lg:block" style="top:42%; left:58%;" aria-hidden="true"></span>
+    <span class="fm-particle pointer-events-none hidden h-2 w-2 lg:block" style="top:78%; left:33%;" aria-hidden="true"></span>
 
-    <div class="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2">
+    <div class="relative mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2">
       <div class="text-center lg:text-left">
-        <p class="fm-reveal mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+        <p class="fm-reveal fm-glow-pulse-ring mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
           <i class="ri-flashlight-fill"></i> This Week's Offers — Save up to 40%
         </p>
         <h1 data-split-text class="font-display text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
@@ -112,44 +124,73 @@
             <i class="ri-map-pin-2-line"></i> Find Nearest Branch
           </a>
         </div>
-        <div class="fm-reveal mt-10 grid grid-cols-3 gap-6 border-t border-[hsl(var(--fm-border))] pt-8">
+        <div class="fm-reveal mt-8 flex items-center justify-center gap-3 lg:justify-start">
+          <div class="flex -space-x-3">
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-[11px] font-bold text-white ring-2 ring-[hsl(var(--fm-surface))]">AC</span>
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-[11px] font-bold text-white ring-2 ring-[hsl(var(--fm-surface))]">DO</span>
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-sky-400 to-indigo-500 text-[11px] font-bold text-white ring-2 ring-[hsl(var(--fm-surface))]">PN</span>
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[hsl(var(--fm-surface-alt))] text-[9px] font-bold text-[hsl(var(--fm-ink))]/70 ring-2 ring-[hsl(var(--fm-surface))]">+320K</span>
+          </div>
+          <div class="text-left">
+            <div class="flex items-center gap-0.5 text-xs text-amber-600"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+            <p class="text-xs text-[hsl(var(--fm-ink))]/65">Loved by 320,000+ shoppers</p>
+          </div>
+        </div>
+        <div class="fm-reveal mt-8 grid grid-cols-3 gap-6 border-t border-[hsl(var(--fm-border))] pt-8">
           <div>
             <p class="font-display text-2xl font-extrabold text-emerald-600"><span data-countup="48" data-suffix="+">0</span></p>
-            <p class="text-xs text-[hsl(var(--fm-ink))]/55">Branches</p>
+            <p class="text-xs text-[hsl(var(--fm-ink))]/65">Branches</p>
           </div>
           <div>
             <p class="font-display text-2xl font-extrabold text-emerald-600"><span data-countup="320" data-suffix="K+">0</span></p>
-            <p class="text-xs text-[hsl(var(--fm-ink))]/55">Loyalty Members</p>
+            <p class="text-xs text-[hsl(var(--fm-ink))]/65">Loyalty Members</p>
           </div>
           <div>
             <p class="font-display text-2xl font-extrabold text-emerald-600"><span data-countup="15" data-suffix="%">0</span></p>
-            <p class="text-xs text-[hsl(var(--fm-ink))]/55">Avg. Savings</p>
+            <p class="text-xs text-[hsl(var(--fm-ink))]/65">Avg. Savings</p>
           </div>
         </div>
       </div>
 
-      <div class="relative mx-auto hidden h-[440px] w-full max-w-md lg:block" aria-hidden="true">
-        <div class="fm-blob absolute inset-8 bg-gradient-to-br from-emerald-500/20 to-amber-400/20"></div>
-        <div class="fm-float absolute left-2 top-4 flex items-center gap-3 rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-4 shadow-2xl">
-          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-rose-500/10 text-rose-500"><i class="ri-restaurant-2-line text-xl"></i></span>
-          <div><p class="font-display text-sm font-bold">Meat &amp; Seafood</p><p class="text-xs text-emerald-600">Up to -31%</p></div>
+      <div id="hero-visual" class="fm-hero-stage relative mx-auto hidden h-[480px] w-full max-w-lg lg:block" aria-hidden="true">
+        <div class="fm-hero-glow absolute inset-16 rounded-full"></div>
+        <div class="fm-hero-ring absolute inset-6 rounded-full border-2 border-dashed border-emerald-500/25"></div>
+        <div class="fm-hero-ring-reverse absolute inset-14 rounded-full border border-dotted border-amber-400/40"></div>
+
+        <div data-hero-tilt class="fm-hero-tilt absolute inset-0 m-auto flex h-72 w-72 items-center justify-center">
+          <div class="h-full w-full overflow-hidden rounded-full shadow-2xl ring-4 ring-[hsl(var(--fm-surface))]">
+            <img src="https://images.unsplash.com/photo-1573246123716-6b1782bfc499?w=650&q=68&auto=format&fit=crop" alt="This week's fresh produce selection" width="650" height="650" loading="eager" decoding="async" class="fm-kenburns h-full w-full object-cover" />
+          </div>
         </div>
-        <div class="fm-float-delay absolute right-4 top-24 flex items-center gap-3 rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-4 shadow-2xl">
-          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-500/10 text-sky-500"><i class="ri-drop-line text-xl"></i></span>
-          <div><p class="font-display text-sm font-bold">Dairy &amp; Eggs</p><p class="text-xs text-emerald-600">Up to -30%</p></div>
+
+        <div class="absolute left-0 top-4" data-depth="26">
+          <div class="fm-float flex items-center gap-3 rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-3 pr-4 shadow-2xl">
+            <span class="h-10 w-10 shrink-0 overflow-hidden rounded-xl"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=120&q=65&auto=format&fit=crop" alt="" width="80" height="80" loading="eager" decoding="async" class="h-full w-full object-cover" /></span>
+            <div><p class="font-display text-sm font-bold">Meat &amp; Seafood</p><p class="text-xs text-emerald-600">Up to -31%</p></div>
+          </div>
         </div>
-        <div class="fm-float-delay-2 absolute bottom-16 left-8 flex items-center gap-3 rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-4 shadow-2xl">
-          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500"><i class="ri-apple-line text-xl"></i></span>
-          <div><p class="font-display text-sm font-bold">Fresh Produce</p><p class="text-xs text-emerald-600">Up to -38%</p></div>
+        <div class="absolute right-0 top-20" data-depth="36">
+          <div class="fm-float-delay flex items-center gap-3 rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-3 pr-4 shadow-2xl">
+            <span class="h-10 w-10 shrink-0 overflow-hidden rounded-xl"><img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=120&q=65&auto=format&fit=crop" alt="" width="80" height="80" loading="eager" decoding="async" class="h-full w-full object-cover" /></span>
+            <div><p class="font-display text-sm font-bold">Dairy &amp; Eggs</p><p class="text-xs text-emerald-600">Up to -30%</p></div>
+          </div>
         </div>
-        <div class="fm-float absolute bottom-2 right-8 flex h-28 w-28 flex-col items-center justify-center rounded-full bg-amber-400 text-center shadow-2xl">
-          <span class="font-display text-2xl font-extrabold text-emerald-950">-40%</span>
-          <span class="text-[10px] font-bold text-emerald-950/70">FLASH SALE</span>
+        <div class="absolute bottom-16 left-4" data-depth="20">
+          <div class="fm-float-delay-2 flex items-center gap-3 rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-3 pr-4 shadow-2xl">
+            <span class="h-10 w-10 shrink-0 overflow-hidden rounded-xl"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=120&q=65&auto=format&fit=crop" alt="" width="80" height="80" loading="eager" decoding="async" class="h-full w-full object-cover" /></span>
+            <div><p class="font-display text-sm font-bold">Bakery</p><p class="text-xs text-emerald-600">Up to -30%</p></div>
+          </div>
+        </div>
+        <div class="absolute bottom-0 right-6" data-depth="44">
+          <div class="fm-float flex h-28 w-28 flex-col items-center justify-center rounded-full bg-amber-400 text-center shadow-2xl">
+            <span class="font-display text-2xl font-extrabold text-emerald-950">-40%</span>
+            <span class="text-[10px] font-bold text-emerald-950">FLASH SALE</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <a href="#categories" aria-label="Scroll down" class="mx-auto mt-14 hidden animate-bounce items-center justify-center text-[hsl(var(--fm-ink))]/40 sm:flex">
+    <a href="#categories" aria-label="Scroll down" class="relative mx-auto mt-14 hidden animate-bounce items-center justify-center text-[hsl(var(--fm-ink))]/65 sm:flex">
       <i class="ri-arrow-down-line text-2xl"></i>
     </a>
   </section>
@@ -158,8 +199,8 @@
   <div class="border-y border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface-alt))] py-5" aria-label="Trust indicators">
     <div class="fm-no-scrollbar overflow-hidden">
       <div class="fm-marquee-track">
-        <div class="flex shrink-0 items-center gap-16 pr-16 text-sm font-semibold text-[hsl(var(--fm-ink))]/50" id="marquee-a"></div>
-        <div class="flex shrink-0 items-center gap-16 pr-16 text-sm font-semibold text-[hsl(var(--fm-ink))]/50" id="marquee-b"></div>
+        <div class="flex shrink-0 items-center gap-16 pr-16 text-sm font-semibold text-[hsl(var(--fm-ink))]/65" id="marquee-a"></div>
+        <div class="flex shrink-0 items-center gap-16 pr-16 text-sm font-semibold text-[hsl(var(--fm-ink))]/65" id="marquee-b"></div>
       </div>
     </div>
   </div>
@@ -170,7 +211,7 @@
       <p class="fm-reveal mb-3 text-sm font-bold uppercase tracking-widest text-emerald-600">Shop by Category</p>
       <h2 data-split-text class="font-display text-3xl font-extrabold tracking-tight md:text-4xl">Everything your basket needs</h2>
     </div>
-    <div id="categories-grid" class="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4"></div>
+    <div id="categories-grid" class="grid grid-cols-2 gap-4 auto-rows-[140px] sm:grid-cols-3 sm:auto-rows-[160px] lg:grid-cols-4 lg:auto-rows-[180px]"></div>
   </section>
 
   <!-- ============ WEEKLY OFFERS ============ -->
@@ -183,16 +224,16 @@
         </div>
         <div data-countdown-box class="fm-reveal flex items-center gap-3">
           <div class="rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] px-4 py-3 text-center">
-            <p class="fm-countdown-box font-display text-2xl font-extrabold text-emerald-600"><span class="fm-dd">00</span></p><p class="text-[10px] uppercase text-[hsl(var(--fm-ink))]/50">Days</p>
+            <p class="fm-countdown-box font-display text-2xl font-extrabold text-emerald-600"><span class="fm-dd">00</span></p><p class="text-[10px] uppercase text-[hsl(var(--fm-ink))]/65">Days</p>
           </div>
           <div class="rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] px-4 py-3 text-center">
-            <p class="fm-countdown-box font-display text-2xl font-extrabold text-emerald-600"><span class="fm-hh">00</span></p><p class="text-[10px] uppercase text-[hsl(var(--fm-ink))]/50">Hrs</p>
+            <p class="fm-countdown-box font-display text-2xl font-extrabold text-emerald-600"><span class="fm-hh">00</span></p><p class="text-[10px] uppercase text-[hsl(var(--fm-ink))]/65">Hrs</p>
           </div>
           <div class="rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] px-4 py-3 text-center">
-            <p class="fm-countdown-box font-display text-2xl font-extrabold text-emerald-600"><span class="fm-mm">00</span></p><p class="text-[10px] uppercase text-[hsl(var(--fm-ink))]/50">Min</p>
+            <p class="fm-countdown-box font-display text-2xl font-extrabold text-emerald-600"><span class="fm-mm">00</span></p><p class="text-[10px] uppercase text-[hsl(var(--fm-ink))]/65">Min</p>
           </div>
           <div class="rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] px-4 py-3 text-center">
-            <p class="fm-countdown-box font-display text-2xl font-extrabold text-emerald-600"><span class="fm-ss" data-countdown="2026-07-26T23:59:59">00</span></p><p class="text-[10px] uppercase text-[hsl(var(--fm-ink))]/50">Sec</p>
+            <p class="fm-countdown-box font-display text-2xl font-extrabold text-emerald-600"><span class="fm-ss" data-countdown="2026-07-26T23:59:59">00</span></p><p class="text-[10px] uppercase text-[hsl(var(--fm-ink))]/65">Sec</p>
           </div>
         </div>
       </div>
@@ -205,6 +246,8 @@
         <button data-filter="snacks" class="rounded-full border border-[hsl(var(--fm-border))] px-4 py-2 text-xs font-bold hover:border-emerald-500">Snacks</button>
         <button data-filter="meat" class="rounded-full border border-[hsl(var(--fm-border))] px-4 py-2 text-xs font-bold hover:border-emerald-500">Meat</button>
         <button data-filter="beverages" class="rounded-full border border-[hsl(var(--fm-border))] px-4 py-2 text-xs font-bold hover:border-emerald-500">Beverages</button>
+        <button data-filter="frozen" class="rounded-full border border-[hsl(var(--fm-border))] px-4 py-2 text-xs font-bold hover:border-emerald-500">Frozen</button>
+        <button data-filter="household" class="rounded-full border border-[hsl(var(--fm-border))] px-4 py-2 text-xs font-bold hover:border-emerald-500">Household</button>
       </div>
 
       <div id="deals-grid" data-isotope-container class="fm-isotope-grid relative mt-10 flex flex-wrap"></div>
@@ -227,22 +270,22 @@
       <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7" data-aos="fade-up">
         <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600"><i class="ri-leaf-line text-2xl"></i></span>
         <h3 class="mt-4 font-display text-base font-bold">100% Freshness Guarantee</h3>
-        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Not happy with your produce? We'll replace or refund it, no questions asked.</p>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Not happy with your produce? We'll replace or refund it, no questions asked.</p>
       </div>
       <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7" data-aos="fade-up" data-aos-delay="100">
         <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/10 text-amber-600"><i class="ri-truck-line text-2xl"></i></span>
         <h3 class="mt-4 font-display text-base font-bold">Free Delivery Over $50</h3>
-        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Same-day delivery slots available across all 48 branches nationwide.</p>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Same-day delivery slots available across all 48 branches nationwide.</p>
       </div>
       <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7" data-aos="fade-up" data-aos-delay="200">
         <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600"><i class="ri-store-2-line text-2xl"></i></span>
         <h3 class="mt-4 font-display text-base font-bold">Click &amp; Collect</h3>
-        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Order online, skip the queue and collect in-store within the hour.</p>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Order online, skip the queue and collect in-store within the hour.</p>
       </div>
       <div class="fm-card fm-tilt rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7" data-aos="fade-up" data-aos-delay="300">
         <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-rose-500/10 text-rose-600"><i class="ri-vip-crown-2-line text-2xl"></i></span>
         <h3 class="mt-4 font-display text-base font-bold">Loyalty Rewards</h3>
-        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Earn points on every purchase and redeem instantly at checkout.</p>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Earn points on every purchase and redeem instantly at checkout.</p>
       </div>
     </div>
   </section>

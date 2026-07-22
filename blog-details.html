@@ -6,6 +6,7 @@
 <title>7 Smart Ways to Stretch Your Weekly Grocery Budget | FreshMart Blog</title>
 <meta name="description" content="Simple, practical habits that help you cut your grocery bill without cutting corners on quality." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+<meta name="theme-color" content="#107f49" />
 <link rel="canonical" href="blog-details.html" />
 
 <script>
@@ -26,10 +27,17 @@
 <script>
   tailwind.config = {
     darkMode: 'class',
-    theme: { extend: { fontFamily: {
-      sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-      display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-    } } },
+    theme: { extend: {
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+      },
+      colors: {
+        emerald: { 50:'#edfdf5', 100:'#d6fae9', 200:'#adf5d2', 300:'#6eedb0', 400:'#25e488', 500:'#18bf6e', 600:'#107f49', 700:'#0d683c', 800:'#0b5632', 900:'#06321d', 950:'#042012' },
+        amber: { 50:'#fef9f1', 100:'#fbeeda', 200:'#f7d9ab', 300:'#f2c178', 400:'#eca841', 500:'#e99920', 600:'#cc8314', 700:'#a76b11', 800:'#8b590e', 900:'#744a0b', 950:'#412a06' },
+        rose: { 50:'#fdf2f2', 100:'#fadcde', 200:'#f4b8bc', 300:'#ee8c92', 400:'#e8646d', 500:'#d11f2b', 600:'#ad1a24', 700:'#92161e', 800:'#81131b', 900:'#430a0e', 950:'#280608' },
+      },
+    } },
   };
 </script>
 
@@ -44,8 +52,8 @@
 <div id="preloader" aria-hidden="true">
   <div class="fm-basket-loader">
     <svg viewBox="0 0 64 64" fill="none">
-      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#16a34a" stroke-width="3" stroke-linejoin="round"/>
-      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#107f49" stroke-width="3" stroke-linejoin="round"/>
+      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#eca841" stroke-width="3" stroke-linecap="round"/>
     </svg>
   </div>
 </div>
@@ -76,17 +84,19 @@
           <span class="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 font-display font-bold text-white">SB</span>
           <div>
             <p class="font-semibold">Sarah Bloom</p>
-            <p class="text-xs text-[hsl(var(--fm-ink))]/50">Chief Executive Officer &middot; FreshMart</p>
+            <p class="text-xs text-[hsl(var(--fm-ink))]/65">Chief Executive Officer &middot; FreshMart</p>
           </div>
-          <div class="ml-auto flex items-center gap-3 text-[hsl(var(--fm-ink))]/50">
+          <div class="ml-auto flex items-center gap-3 text-[hsl(var(--fm-ink))]/65">
             <a href="#" aria-label="Share on Facebook" class="hover:text-emerald-600"><i class="ri-facebook-fill"></i></a>
             <a href="#" aria-label="Share on X" class="hover:text-emerald-600"><i class="ri-twitter-x-line"></i></a>
             <a href="#" aria-label="Share via email" class="hover:text-emerald-600"><i class="ri-mail-line"></i></a>
           </div>
         </div>
 
-        <div class="relative mb-10 flex h-80 items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white" data-aos="fade-up">
-          <i class="ri-wallet-3-line text-8xl opacity-80"></i>
+        <div class="fm-photo-tile fm-img-reveal group relative mb-10 flex h-80 items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white">
+          <img src="https://images.unsplash.com/photo-1543168256-418811576931?w=900&q=65&auto=format&fit=crop" alt="A week's worth of budget-friendly groceries" width="900" height="500" loading="eager" decoding="async" class="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/85 via-emerald-800/20 to-transparent"></div>
+          <i class="ri-wallet-3-line relative text-8xl opacity-90"></i>
         </div>
 
         <div class="prose prose-sm max-w-none text-[hsl(var(--fm-ink))]/75 sm:prose-base prose-headings:font-display prose-headings:font-extrabold prose-headings:text-[hsl(var(--fm-ink))] prose-a:text-emerald-600">
@@ -182,7 +192,7 @@
         <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600"><i class="ri-article-line"></i></span>
         <div>
           <a href="blog-details.html" class="line-clamp-2 font-semibold hover:text-emerald-600">${p.title}</a>
-          <p class="mt-1 text-xs text-[hsl(var(--fm-ink))]/50">${p.date}</p>
+          <p class="mt-1 text-xs text-[hsl(var(--fm-ink))]/65">${p.date}</p>
         </div>
       </li>`).join('');
 

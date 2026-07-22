@@ -13,11 +13,7 @@ const FM_NAV = [
       { label: 'Home — Weekly Catalog', href: 'home-2.html' },
     ],
   },
-  {
-    label: 'Weekly Offers',
-    mega: true,
-    href: 'index.html#weekly-offers',
-  },
+  { label: 'Weekly Offers', href: 'index.html#weekly-offers' },
   { label: 'About', href: 'about.html' },
   {
     label: 'Services',
@@ -37,42 +33,11 @@ const FM_NAV = [
   { label: 'Contact', href: 'contact.html' },
 ];
 
-function fmMegaMenuHTML() {
-  return `
-  <div class="fm-mega-panel absolute left-1/2 top-full z-40 mt-3 w-[min(92vw,880px)] -translate-x-1/2 rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-6 shadow-2xl shadow-black/10">
-    <div class="grid grid-cols-2 gap-6 md:grid-cols-4">
-      ${FM_CATEGORIES.map(c => `
-        <a href="index.html#weekly-offers" data-cat="${c.id}" class="fm-cat-link group flex flex-col gap-3 rounded-xl p-3 transition hover:bg-[hsl(var(--fm-surface-alt))]">
-          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-${c.color}-500/10 text-${c.color}-600 dark:text-${c.color}-400">
-            <i class="${c.icon} text-xl"></i>
-          </span>
-          <span>
-            <span class="block font-semibold text-sm">${c.name}</span>
-            <span class="block text-xs text-[hsl(var(--fm-ink))]/55">${c.count} deals</span>
-          </span>
-        </a>`).join('')}
-    </div>
-    <div class="mt-5 flex items-center justify-between rounded-xl bg-emerald-600/10 p-4">
-      <p class="text-sm font-medium"><i class="ri-flashlight-fill mr-1 text-amber-500"></i> Flash Sale ends in <span class="font-bold" data-countdown="2026-07-26T23:59:59">--:--:--</span></p>
-      <a href="index.html#weekly-offers" class="fm-btn relative rounded-full bg-emerald-600 px-4 py-2 text-xs font-semibold text-white">View All Offers</a>
-    </div>
-  </div>`;
-}
-
 function fmHeaderHTML(activePage) {
   const navItems = FM_NAV.map(item => {
     const isActive = item.href && item.href.split('#')[0] === activePage;
     const activeChild = item.children && item.children.some(c => c.href.split('#')[0] === activePage);
     const activeCls = (isActive || activeChild) ? 'text-emerald-600 dark:text-emerald-400' : '';
-    if (item.mega) {
-      return `
-      <div class="group relative">
-        <button class="fm-nav-link ${activeCls} flex items-center gap-1 py-2 text-sm font-semibold hover:text-emerald-600 dark:hover:text-emerald-400">
-          ${item.label} <i class="ri-arrow-down-s-line text-base transition group-hover:rotate-180"></i>
-        </button>
-        ${fmMegaMenuHTML()}
-      </div>`;
-    }
     if (item.children) {
       return `
       <div class="group relative">
@@ -135,7 +100,7 @@ function fmHeaderHTML(activePage) {
   </div>
   <div id="search-panel" class="hidden border-t border-[hsl(var(--fm-border))] px-6 py-4">
     <div class="mx-auto flex max-w-2xl items-center gap-3 rounded-full border border-[hsl(var(--fm-border))] px-5 py-3">
-      <i class="ri-search-line text-lg text-[hsl(var(--fm-ink))]/50"></i>
+      <i class="ri-search-line text-lg text-[hsl(var(--fm-ink))]/65"></i>
       <input type="search" placeholder="Search products, categories, deals..." class="w-full bg-transparent text-sm outline-none" />
       <button class="rounded-full bg-emerald-600 px-4 py-2 text-xs font-semibold text-white">Search</button>
     </div>
@@ -157,13 +122,12 @@ function fmMobileMenuHTML(activePage) {
         </div>
       </div>`;
     }
-    const href = item.mega ? 'index.html#weekly-offers' : item.href;
-    return `<a href="${href}" class="block border-b border-[hsl(var(--fm-border))] py-4 text-sm font-semibold">${item.label}</a>`;
+    return `<a href="${item.href}" class="block border-b border-[hsl(var(--fm-border))] py-4 text-sm font-semibold">${item.label}</a>`;
   }).join('');
 
   return `
   <div id="mobile-menu-overlay" class="fixed inset-0 z-[60] hidden bg-black/50 backdrop-blur-sm"></div>
-  <aside id="mobile-menu-panel" class="fixed inset-y-0 right-0 z-[70] w-[86%] max-w-sm overflow-y-auto bg-[hsl(var(--fm-surface))] p-6 shadow-2xl" aria-label="Mobile menu">
+  <aside id="mobile-menu-panel" class="fixed inset-y-0 right-0 z-[70] w-full overflow-y-auto bg-[hsl(var(--fm-surface))] p-6 shadow-2xl" aria-label="Mobile menu">
     <div class="mb-6 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2">
         <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-600 text-white"><i class="ri-shopping-basket-2-fill"></i></span>
@@ -187,9 +151,9 @@ function fmMobileMenuHTML(activePage) {
       <i class="ri-vip-crown-2-line"></i> Get Loyalty Card
     </a>
     <div class="mt-6 flex items-center justify-center gap-4 text-lg">
-      <a href="#" aria-label="Facebook" class="text-[hsl(var(--fm-ink))]/60 hover:text-emerald-600"><i class="ri-facebook-fill"></i></a>
-      <a href="#" aria-label="Instagram" class="text-[hsl(var(--fm-ink))]/60 hover:text-emerald-600"><i class="ri-instagram-line"></i></a>
-      <a href="#" aria-label="X" class="text-[hsl(var(--fm-ink))]/60 hover:text-emerald-600"><i class="ri-twitter-x-line"></i></a>
+      <a href="#" aria-label="Facebook" class="text-[hsl(var(--fm-ink))]/65 hover:text-emerald-600"><i class="ri-facebook-fill"></i></a>
+      <a href="#" aria-label="Instagram" class="text-[hsl(var(--fm-ink))]/65 hover:text-emerald-600"><i class="ri-instagram-line"></i></a>
+      <a href="#" aria-label="X" class="text-[hsl(var(--fm-ink))]/65 hover:text-emerald-600"><i class="ri-twitter-x-line"></i></a>
     </div>
   </aside>`;
 }

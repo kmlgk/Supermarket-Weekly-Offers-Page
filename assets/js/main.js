@@ -169,6 +169,69 @@
           scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true },
         });
       });
+
+      // Cinematic clip-path wipe-reveal for feature photography as it
+      // scrolls into view (pairs with the .fm-img-reveal starting state
+      // in style.css: clip-path: inset(0 0 0 100%)).
+      gsap.utils.toArray('.fm-img-reveal').forEach((el, i) => {
+        gsap.to(el, {
+          clipPath: 'inset(0 0 0 0%)', duration: 1.1, ease: 'power4.out', delay: i * 0.08,
+          scrollTrigger: { trigger: el, start: 'top 85%' },
+        });
+      });
+
+      initHero3D();
+    }
+
+    /* ---------- Hero 3D showcase: mouse-parallax tilt + entrance ---------- */
+    // Skipped on touch devices (no real cursor to drive it) and for
+    // prefers-reduced-motion. Depth-tagged elements ([data-depth]) get
+    // their own outer wrapper purely for GSAP's translate — the actual
+    // floating "bob" animation lives on an *inner* element via the
+    // existing .fm-float CSS keyframes. Splitting them like this
+    // matters: a CSS @keyframes animation and a GSAP tween both
+    // targeting `transform` on the very same element fight each other
+    // (the keyframe wins every frame, since running animations take
+    // cascade priority over an inline style), which would make the
+    // parallax invisible/jittery if it shared the .fm-float element.
+    function initHero3D() {
+      const stage = document.getElementById('hero-visual');
+      if (!stage) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const tiltTarget = stage.querySelector('[data-hero-tilt]');
+      const depthEls = Array.from(stage.querySelectorAll('[data-depth]'));
+
+      // Entrance: showcase image scales/rotates in, cards fly in with a
+      // staggered bounce once the hero is on screen.
+      if (tiltTarget) gsap.set(tiltTarget, { opacity: 0, scale: 0.7, rotationY: -28, transformPerspective: 1000 });
+      gsap.set(depthEls, { opacity: 0, y: 36, scale: 0.85 });
+      const tl = gsap.timeline({ delay: 0.35 });
+      if (tiltTarget) tl.to(tiltTarget, { opacity: 1, scale: 1, rotationY: 0, duration: 1.1, ease: 'power4.out' });
+      tl.to(depthEls, { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.12, ease: 'back.out(1.6)' }, tiltTarget ? '-=0.65' : 0);
+
+      // Mouse-driven 3D parallax — desktop/fine-pointer only.
+      if (!window.matchMedia('(pointer: fine)').matches) return;
+
+      const quickRotX = tiltTarget ? gsap.quickTo(tiltTarget, 'rotationX', { duration: 0.6, ease: 'power3.out' }) : null;
+      const quickRotY = tiltTarget ? gsap.quickTo(tiltTarget, 'rotationY', { duration: 0.6, ease: 'power3.out' }) : null;
+      const depthQuicks = depthEls.map(el => ({
+        depth: parseFloat(el.dataset.depth) || 20,
+        x: gsap.quickTo(el, 'x', { duration: 0.7, ease: 'power3.out' }),
+        y: gsap.quickTo(el, 'y', { duration: 0.7, ease: 'power3.out' }),
+      }));
+
+      stage.addEventListener('mousemove', (e) => {
+        const r = stage.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        if (quickRotX && quickRotY) { quickRotX(py * -14); quickRotY(px * 14); }
+        depthQuicks.forEach(({ depth, x, y }) => { x(px * depth); y(py * depth); });
+      });
+      stage.addEventListener('mouseleave', () => {
+        if (quickRotX && quickRotY) { quickRotX(0); quickRotY(0); }
+        depthQuicks.forEach(({ x, y }) => { x(0); y(0); });
+      });
     }
 
     /* ---------- Typed.js ---------- */
@@ -291,6 +354,20 @@
       document.getElementById('mobile-menu-panel')?.classList.remove('fm-open');
       document.getElementById('mobile-menu-overlay')?.classList.add('hidden');
       document.documentElement.style.overflow = '';
+
+      // Category cards (Shop by Category) carry data-cat and point at
+      // #weekly-offers — activate the matching Isotope filter button so
+      // the section doesn't just scroll into view but also shows only
+      // that category. The click() (not a direct arrange() call) is
+      // deliberate: it's a real synthetic click that bubbles up through
+      // the filter button's own ancestors, so it runs through the exact
+      // same listener initIsotope() already wires up on the filter
+      // group — same active-state toggling, same arrange() call, one
+      // source of truth instead of a second copy of that logic here.
+      if (link.dataset.cat) {
+        const filterBtn = document.querySelector(`[data-filter="${link.dataset.cat}"]`);
+        if (filterBtn) filterBtn.click();
+      }
 
       const headerOffset = document.getElementById('site-header')?.offsetHeight || 84;
       if (lenis) {

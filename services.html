@@ -6,6 +6,7 @@
 <title>Our Services — FreshMart Delivery, Click &amp; Collect, Loyalty</title>
 <meta name="description" content="Explore FreshMart's services: weekly offers, home delivery, click & collect, loyalty rewards, bulk orders and meal planning." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+<meta name="theme-color" content="#107f49" />
 <link rel="canonical" href="services.html" />
 
 <script>
@@ -26,10 +27,17 @@
 <script>
   tailwind.config = {
     darkMode: 'class',
-    theme: { extend: { fontFamily: {
-      sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-      display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-    } } },
+    theme: { extend: {
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+      },
+      colors: {
+        emerald: { 50:'#edfdf5', 100:'#d6fae9', 200:'#adf5d2', 300:'#6eedb0', 400:'#25e488', 500:'#18bf6e', 600:'#107f49', 700:'#0d683c', 800:'#0b5632', 900:'#06321d', 950:'#042012' },
+        amber: { 50:'#fef9f1', 100:'#fbeeda', 200:'#f7d9ab', 300:'#f2c178', 400:'#eca841', 500:'#e99920', 600:'#cc8314', 700:'#a76b11', 800:'#8b590e', 900:'#744a0b', 950:'#412a06' },
+        rose: { 50:'#fdf2f2', 100:'#fadcde', 200:'#f4b8bc', 300:'#ee8c92', 400:'#e8646d', 500:'#d11f2b', 600:'#ad1a24', 700:'#92161e', 800:'#81131b', 900:'#430a0e', 950:'#280608' },
+      },
+    } },
   };
 </script>
 
@@ -44,8 +52,8 @@
 <div id="preloader" aria-hidden="true">
   <div class="fm-basket-loader">
     <svg viewBox="0 0 64 64" fill="none">
-      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#16a34a" stroke-width="3" stroke-linejoin="round"/>
-      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      <path class="fm-basket-path" d="M10 22h44l-5 30H15L10 22Z" stroke="#107f49" stroke-width="3" stroke-linejoin="round"/>
+      <path class="fm-basket-path" d="M20 22c0-8 5-14 12-14s12 6 12 14" stroke="#eca841" stroke-width="3" stroke-linecap="round"/>
     </svg>
   </div>
 </div>
@@ -89,17 +97,17 @@
         <div class="relative text-center" data-aos="fade-up">
           <span class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-600 font-display text-xl font-extrabold text-white shadow-xl shadow-emerald-600/30">1</span>
           <h3 class="mt-5 font-display text-lg font-bold">Browse Weekly Offers</h3>
-          <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Check the app or in-store catalog for this week's discounted categories.</p>
+          <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Check the app or in-store catalog for this week's discounted categories.</p>
         </div>
         <div class="relative text-center" data-aos="fade-up" data-aos-delay="120">
           <span class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-600 font-display text-xl font-extrabold text-white shadow-xl shadow-emerald-600/30">2</span>
           <h3 class="mt-5 font-display text-lg font-bold">Add Your Loyalty Card</h3>
-          <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Scan your card at checkout — or online — to stack extra loyalty savings.</p>
+          <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Scan your card at checkout — or online — to stack extra loyalty savings.</p>
         </div>
         <div class="relative text-center" data-aos="fade-up" data-aos-delay="240">
           <span class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-600 font-display text-xl font-extrabold text-white shadow-xl shadow-emerald-600/30">3</span>
           <h3 class="mt-5 font-display text-lg font-bold">Collect, Delivered or In-Store</h3>
-          <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">Pick your basket up at the counter, or have it delivered same day.</p>
+          <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">Pick your basket up at the counter, or have it delivered same day.</p>
         </div>
       </div>
     </div>
@@ -143,21 +151,15 @@
 <script src="assets/js/countdown.js"></script>
 
 <script>
-  const FM_SERVICES = [
-    { icon: 'ri-price-tag-3-line', title: 'Weekly Offers', text: 'Rotating discounts across produce, dairy, bakery and more — every single week.', color: 'emerald' },
-    { icon: 'ri-truck-line', title: 'Home Delivery', text: 'Same-day delivery slots, free over $50, available at every branch nationwide.', color: 'amber' },
-    { icon: 'ri-store-2-line', title: 'Click &amp; Collect', text: 'Order online and collect in-store within the hour, no queue required.', color: 'sky' },
-    { icon: 'ri-vip-crown-2-line', title: 'Loyalty Rewards', text: 'Earn points on every purchase and redeem instantly at checkout.', color: 'rose' },
-    { icon: 'ri-briefcase-4-line', title: 'Bulk &amp; Wholesale', text: 'Special pricing for cafes, offices and large families buying in bulk.', color: 'indigo' },
-    { icon: 'ri-restaurant-line', title: 'Meal Planning', text: "Weekly recipe bundles built entirely around this week's best offers.", color: 'lime' },
-  ];
-
   document.addEventListener('DOMContentLoaded', () => {
+    // FM_SERVICES comes from assets/js/data.js — shared with
+    // service-details.html, which reads ?service=<id> to show the
+    // matching content instead of one fixed page for every service.
     FmRender.mount('services-grid', FM_SERVICES, (s) => `
-      <a href="service-details.html" class="fm-card fm-tilt group block rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7" data-aos="fade-up">
+      <a href="service-details.html?service=${s.id}" class="fm-card fm-tilt group block rounded-2xl border border-[hsl(var(--fm-border))] bg-[hsl(var(--fm-surface))] p-7" data-aos="fade-up">
         <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-${s.color}-500/10 text-${s.color}-600 transition group-hover:scale-110"><i class="${s.icon} text-2xl"></i></span>
         <h3 class="mt-5 font-display text-lg font-bold">${s.title}</h3>
-        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/60">${s.text}</p>
+        <p class="mt-2 text-sm text-[hsl(var(--fm-ink))]/65">${s.text}</p>
         <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-emerald-600 group-hover:gap-2.5 transition-all">Learn More <i class="ri-arrow-right-line"></i></span>
       </a>`);
 
@@ -173,7 +175,7 @@
         <button class="fm-accordion-toggle flex w-full items-center justify-between p-5 text-left font-display font-bold">
           ${f.q} <i class="ri-arrow-down-s-line fm-accordion-icon text-xl text-emerald-600"></i>
         </button>
-        <div class="fm-accordion-body"><p class="px-5 pb-5 text-sm text-[hsl(var(--fm-ink))]/60">${f.a}</p></div>
+        <div class="fm-accordion-body"><p class="px-5 pb-5 text-sm text-[hsl(var(--fm-ink))]/65">${f.a}</p></div>
       </div>`).join('');
   });
 </script>
