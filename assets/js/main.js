@@ -378,20 +378,6 @@
       }
     });
 
-    /* ---------- Page transition wipe on internal nav ---------- */
-    document.addEventListener('click', (e) => {
-      const link = e.target.closest('a[href]');
-      if (!link) return;
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('http') || link.target === '_blank') return;
-      const overlay = document.getElementById('fm-page-transition');
-      if (overlay) {
-        e.preventDefault();
-        overlay.classList.add('fm-active');
-        setTimeout(() => { window.location.href = href; }, 420);
-      }
-    });
-
     /* ---------- Newsletter / contact form demo handling ---------- */
     document.querySelectorAll('form[data-demo-form]').forEach(form => {
       form.addEventListener('submit', (e) => {

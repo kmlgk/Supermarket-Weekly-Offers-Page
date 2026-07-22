@@ -346,11 +346,11 @@ html.dark .fm-hero-bg-photo { opacity: .28; filter: grayscale(85%) saturate(50%)
 
 .fm-hero-wash {
   background:
-    linear-gradient(115deg, hsl(var(--fm-surface) / .97) 0%, hsl(var(--fm-surface) / .82) 32%, hsl(var(--fm-primary) / .22) 68%, hsl(var(--fm-surface) / .93) 100%);
+    linear-gradient(115deg, hsl(var(--fm-surface) / .97) 0%, hsl(var(--fm-surface) / .82) 32%, hsl(var(--fm-surface) / .7) 68%, hsl(var(--fm-surface) / .93) 100%);
 }
 html.dark .fm-hero-wash {
   background:
-    linear-gradient(115deg, hsl(var(--fm-surface) / .96) 0%, hsl(var(--fm-surface) / .78) 32%, hsl(var(--fm-primary) / .3) 68%, hsl(var(--fm-surface) / .92) 100%);
+    linear-gradient(115deg, hsl(var(--fm-surface) / .96) 0%, hsl(var(--fm-surface) / .78) 32%, hsl(var(--fm-surface) / .65) 68%, hsl(var(--fm-surface) / .92) 100%);
 }
 
 /* Perspective stage: children with a 3D transform need a perspective

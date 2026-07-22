@@ -35,8 +35,8 @@ const FM_NAV = [
 
 function fmHeaderHTML(activePage) {
   const navItems = FM_NAV.map(item => {
-    const isActive = item.href && item.href.split('#')[0] === activePage;
-    const activeChild = item.children && item.children.some(c => c.href.split('#')[0] === activePage);
+    const isActive = item.href && !item.href.includes('#') && item.href.split('#')[0] === activePage;
+    const activeChild = item.children && item.children.some(c => !c.href.includes('#') && c.href.split('#')[0] === activePage);
     const activeCls = (isActive || activeChild) ? 'text-emerald-600 dark:text-emerald-400' : '';
     if (item.children) {
       return `
